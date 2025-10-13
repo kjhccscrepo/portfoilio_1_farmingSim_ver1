@@ -1,15 +1,4 @@
-#pragma once
-#include <vector>
-#include "soil.hpp"
+#include <string>
 
-class farm {
-private:
-    std::vector<std::vector<soil>> farmland;
-public:
-    farm(int x, int y);
-    int getYUpBound() const;
-    int getXUpBound() const;
-    std::string getSymbol(const int &x, const int &y) const;
-    void end_FarmDay();
-
-};
+std::string hello();
+void zoom(std::string symbol);
