@@ -1,8 +1,10 @@
 #include <iostream>
 
 #include "src/farm.hpp"
+#include "src/farm_printer.hpp"
 
 int main() {
-  Farm farm(10, 10);
-  std::cout << farm.number_of_rows() << std::endl;
+  Farm farm(10, 5);
+  FarmPrinter printer(&farm);
+  std::cout << printer.pp();
 }
