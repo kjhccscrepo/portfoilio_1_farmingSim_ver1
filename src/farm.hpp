@@ -1,4 +1,14 @@
+#pragma once
+
 #include <string>
 
-std::string hello();
-void zoom(std::string symbol);
+class Farm {
+  private:
+    int rows;
+    int columns;
+
+  public:
+    Farm(int rows, int columns);
+    int number_of_rows();
+    int number_of_columns();
+};
