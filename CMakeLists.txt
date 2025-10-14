@@ -16,6 +16,8 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(Catch2)
 
 add_executable(farm_test tests/farm_test.cpp src/farm.cpp)
+add_executable(soil_test tests/soil_test.cpp src/soil.cpp)
 add_executable(main main.cpp src/farm.cpp)
 
 target_link_libraries(farm_test PRIVATE Catch2::Catch2WithMain)
+target_link_libraries(soil_test PRIVATE Catch2::Catch2WithMain)
