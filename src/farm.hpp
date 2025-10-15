@@ -3,11 +3,13 @@
 #include <string>
 #include <vector>
 
+#include "plot.hpp"
+
 class Farm {
   private:
     int rows;
     int columns;
-    std::vector<std::vector<std::string>> plots;
+    std::vector<std::vector<Plot *>> plots;
 
   public:
     Farm(int rows, int columns);

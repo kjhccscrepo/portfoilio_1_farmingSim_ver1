@@ -2,7 +2,9 @@
 
 #include <string>
 
-class Soil {
+#include "plot.hpp"
+
+class Soil : public Plot {
   public:
     std::string symbol();
 };
