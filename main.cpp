@@ -18,5 +18,6 @@ int main() {
   player.move_right();
   player.move_right();
   player.move_right();
+  player.move_down();
   std::cout << printer.pp() << std::endl;
 }

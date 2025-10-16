@@ -11,3 +11,7 @@ int Player::column() {
 void Player::move_right() {
   current_column += 1;
 }
+
+void Player::move_down() {
+  current_row += 1;
+}

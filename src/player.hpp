@@ -9,4 +9,5 @@ class Player {
     int row();
     int column();
     void move_right();
+    void move_down();
 };

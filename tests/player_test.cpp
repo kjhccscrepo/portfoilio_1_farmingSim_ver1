@@ -17,3 +17,10 @@ TEST_CASE( "it moves the player to the right" ) {
   REQUIRE( player.row() == 0 );
   REQUIRE( player.column() == 1 );
 }
+
+TEST_CASE( "it moves the player down" ) {
+  Player player;
+  player.move_down();
+  REQUIRE( player.row() == 1 );
+  REQUIRE( player.column() == 0 );
+}
