@@ -2,10 +2,11 @@
 #include <vector>
 #include "farm_brain.hpp"
 #include "plants.hpp"
+#include "items.hpp"
 
 class player {
 private:
-    // invitory goes here.
+    // inventory goes here.
 
     char avatar = 'P';
 public:

@@ -6,5 +6,5 @@
 #include "../src/farm.hpp"
 
 TEST_CASE( "it returns Hello World" ) {
-    REQUIRE( hello() == "Hello World!" );
+    REQUIRE( "hi" == "Hello World!" );
 }
