@@ -1,4 +1,16 @@
-#include <string>
+#pragma once
+#include <vector>
+#include "soil.hpp"
 
-std::string hello();
-void zoom(std::string symbol);
+class farm {
+private:
+    std::vector<std::vector<soil>> farmland;
+public:
+    farm(int width, int depth);
+
+    int getYUpBound();
+    int getXUpBound();
+
+    char getSymbol(const int &x, const int &y);
+
+};

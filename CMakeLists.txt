@@ -15,7 +15,39 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(Catch2)
 
-add_executable(farm_test tests/farm_test.cpp src/farm.cpp)
-add_executable(main main.cpp src/farm.cpp)
+
+add_executable(main main.cpp
+        src/ansi_clear.hpp
+        src/farm.cpp
+        src/farm_brain.cpp
+        src/items.cpp
+        src/plants.cpp
+        src/player.cpp
+        src/soil.cpp
+)
+add_executable(farm_test tests/farm_test.cpp
+        src/farm.cpp
+        src/soil.cpp)
+add_executable(farm_brain_test tests/farm_brain_test.cpp
+        src/farm_brain.cpp
+        src/farm.cpp
+        src/soil.cpp
+        src/player.cpp)
+add_executable(items_test tests/items_test.cpp
+        src/items.cpp)
+add_executable(plants_test tests/plants_test.cpp
+        src/plants.cpp)
+add_executable(player_test tests/player_test.cpp
+        src/player.cpp
+        src/farm_brain.cpp
+        src/plants.cpp)
+add_executable(soil_test tests/soil_test.cpp
+        src/soil.cpp
+        src/plants.cpp)
 
 target_link_libraries(farm_test PRIVATE Catch2::Catch2WithMain)
+target_link_libraries(farm_brain_test PRIVATE Catch2::Catch2WithMain)
+target_link_libraries(items_test PRIVATE Catch2::Catch2WithMain)
+target_link_libraries(plants_test PRIVATE Catch2::Catch2WithMain)
+target_link_libraries(player_test PRIVATE Catch2::Catch2WithMain)
+target_link_libraries(soil_test PRIVATE Catch2::Catch2WithMain)

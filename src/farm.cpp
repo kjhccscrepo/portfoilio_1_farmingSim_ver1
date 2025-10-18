@@ -1,24 +1,25 @@
-#include <string>
+#include "farm.hpp"
 
-#include "ansi_clear.hpp"
-
-std::string hello() {
-   return "Hello World!";
+farm::farm(int width, int depth) {
+    farmland.resize(width);
+    for (int i = 0; i < depth; i++) {
+        farmland[i].resize(depth);
+    }
+    for (int j = 0; j < width; j++) {
+        for (int k = 0; k < depth; k++) {
+            farmland[j][k] = soil();
+        }
+    }
 }
 
-void spaces_and_dot(int number_of_spaces, std::string symbol) {
-  ansi_clear();
-  std::string input;
-  for(int i = 0; i < number_of_spaces; i++) {
-    std::cout << " ";
-  }
-  std::cout << symbol << std::endl;
-  std::cout << "Press Enter" << std::endl;
-  std::getline(std::cin, input);
+int farm::getYUpBound() {
+    return farmland[0].size();
 }
 
-void zoom(std::string symbol) {
-  for(int i = 40; i > 0; i--) {
-    spaces_and_dot(i, symbol);
-  }
+int farm::getXUpBound() {
+    return farmland.size();
+}
+
+char farm::getSymbol(const int &x, const int &y) {
+    return farmland[x][y].getDisplay();
 }
