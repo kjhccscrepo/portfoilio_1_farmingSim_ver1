@@ -1,10 +1,10 @@
 #include "items.hpp"
 
-item::item() {
+items::items() {
     quantity = 0;
 }
 
-void item::modifyQuantity(int n) {
+void items::modifyQuantity(int n) {
     this->quantity += n;
 }
 

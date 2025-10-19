@@ -38,7 +38,10 @@ add_executable(farm_brain_test tests/farm_brain_test.cpp
 add_executable(items_test tests/items_test.cpp
         src/items.cpp)
 add_executable(plants_test tests/plants_test.cpp
-        src/plants.cpp)
+        src/plants.cpp
+        src/plantData.cpp
+        src/lootTable.cpp
+        )
 add_executable(player_test tests/player_test.cpp
         src/player.cpp
         src/farm_brain.cpp

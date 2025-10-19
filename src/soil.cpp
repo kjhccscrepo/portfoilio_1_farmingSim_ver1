@@ -11,23 +11,30 @@ soil::soil() {
     this->isOccupied = false;
     myDisplay = '~';
 }
-void soil::assignSeed(const plants *initializeSeed) {
-    *mySeed = *initializeSeed;
-    myDisplay = mySeed->getDisplay();
+void soil::assignSeed(seeds *initializeSeed) {
+    myPlant = new plants(*initializeSeed->getMyPlant());
+    myDisplay = myPlant->getDisplay();
     isOccupied = true;
 }
+
 void soil::tick() {
-    if (mySeed != nullptr) {
-        mySeed->tickUpdate();
-        myDisplay = mySeed->getDisplay();
+    if (myPlant != nullptr) {
+        myPlant->tickUpdate();
+        myDisplay = myPlant->getDisplay();
     } else {
         myDisplay = '~';
     }
 }
 void soil::harvest() {
-
+    // code go here then....
+    myPlant = nullptr;
 }
 
 char soil::getDisplay() {
     return myDisplay;
+}
+
+// this way the memory can be cleaned up I think....
+soil::~soil() {
+    delete myPlant;
 }

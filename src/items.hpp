@@ -1,13 +1,13 @@
 #pragma once
 #include <string>
 
-class item {
+class items {
 private:
 protected:
     std::string name;
     int quantity;
 public:
-    item();
+    items();
     void modifyQuantity(int n);
-    virtual ~item() = default;
+    virtual ~items() = default;
 };

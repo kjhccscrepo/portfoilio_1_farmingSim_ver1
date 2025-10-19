@@ -6,12 +6,11 @@
 
 class player {
 private:
-    // inventory goes here.
-
-    char avatar = 'P';
+    std::vector<items> *myInventory;
+    char myAvatar;
+    float myMoney;
+    std::string myName;
 public:
-    //bound checking or some shit.
-    player();
-
+    explicit player(std::vector<items> *inventory, char avatar, const std::string &name);
     char getAvatar();
 };

@@ -1,24 +1,10 @@
 #pragma once
 #include <string>
 #include <vector>
+#include "produce.hpp"
+#include "lootTable.hpp"
+#include "plantData.hpp"
 
-class plantData {
-public:
-    plantData(const int &growth, const std::string &name, const std::vector<char> &states);
-    int timeToGrow;
-    std::string name;
-    std::vector<char> states;
-    plantData();
-};
-class lootTable {
-public:
-    lootTable(const int &min, const int &max, const int &dropChance, const int &weightedOdds);
-    int minimumDropAmount;
-    int maximumDropAmount;
-    int dropChancePeak;
-    int weightedOddsOnBottom;
-    lootTable();
-};
 
 class plants {
 private:
@@ -32,8 +18,14 @@ private:
     bool isGrown() const;
     lootTable plantHarvest;
     lootTable seedHarvest;
+
+    produce *myProduct;
+
 public:
     explicit plants(const plantData &data, lootTable harvestDrops, lootTable seedDrops);
     void tickUpdate();
     char getDisplay() const;
+    plants *returnMe();
+
+    produce returnProduce();
 };
