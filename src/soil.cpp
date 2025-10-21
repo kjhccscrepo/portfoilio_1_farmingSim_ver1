@@ -17,6 +17,10 @@ void soil::assignSeed(seeds *initializeSeed) {
     isOccupied = true;
 }
 
+void soil::end_day() {
+    tick();
+}
+
 void soil::tick() {
     if (myPlant != nullptr) {
         myPlant->tickUpdate();

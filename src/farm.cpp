@@ -23,3 +23,11 @@ int farm::getXUpBound() {
 char farm::getSymbol(const int &x, const int &y) {
     return farmland[x][y].getDisplay();
 }
+
+void farm::end_FarmDay() {
+    for (int i = 0; i < farmland.size(); i++) {
+        for (int j = 0; j < farmland[i].size(); j++) {
+            farmland[i][j].end_day();
+        }
+    }
+}

@@ -26,6 +26,8 @@ add_executable(main main.cpp
         src/soil.cpp
         src/produce.cpp
         src/seeds.cpp
+        src/plantData.cpp
+        src/lootTable.cpp
 )
 add_executable(farm_test tests/farm_test.cpp
         src/farm.cpp

@@ -14,6 +14,9 @@ public:
     explicit soil(const int &gradeTier, const std::string &name);
     soil();
     void assignSeed(seeds *initializeSeed);
+
+    void end_day();
+
     void tick();
     void harvest();
     char getDisplay();

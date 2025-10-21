@@ -1,11 +1,17 @@
 #include <iostream>
 #include "src/ansi_clear.hpp"
+#include "src/farm.hpp"
+#include "src/farm_brain.hpp"
+#include "src/produce.hpp"
+#include "src/seeds.hpp"
 #include "src/plants.hpp"
 #include "src/items.hpp"
-#include "src/seeds.hpp"
+#include "src/plantData.hpp"
+#include "src/lootTable.hpp"
+#include <string>
+
 
 int main() {
-
     // all this makes a carrot, then puts it as available options in the player inventory.
     //
     // I want to try and find a way to automate at least, some of it, without introducing too much tight coupling.
@@ -19,7 +25,6 @@ int main() {
     std::vector<items> inventory_player;
     inventory_player.push_back(seeds_Carrot);
     inventory_player.push_back(plant_Carrot.returnProduce());
-
 
 
     bool gameOver = false;

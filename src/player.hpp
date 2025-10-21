@@ -1,6 +1,5 @@
 #pragma once
 #include <vector>
-#include "farm_brain.hpp"
 #include "plants.hpp"
 #include "items.hpp"
 
@@ -10,7 +9,14 @@ private:
     char myAvatar;
     float myMoney;
     std::string myName;
+    int x;
+    int y;
 public:
     explicit player(std::vector<items> *inventory, char avatar, const std::string &name);
+    player();
     char getAvatar();
+
+    int getY();
+    int getX();
+
 };
