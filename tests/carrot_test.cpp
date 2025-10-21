@@ -16,7 +16,7 @@ TEST_CASE( "it returns a V when the carrot is half-grown" ) {
   REQUIRE( carrot.symbol() == "V" );
 }
 
-TEST_CASE( "it returns a V when the carrot is fully grown" ) {
+TEST_CASE( "it returns a W when the carrot is fully grown" ) {
   Carrot carrot;
   carrot.end_day();
   carrot.end_day();
