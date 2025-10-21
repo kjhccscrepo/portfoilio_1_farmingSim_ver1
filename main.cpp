@@ -27,6 +27,8 @@ int main() {
     } else if(player_input == "c") {
       Carrot *carrot = new Carrot();
       farm.plant(player.row(), player.column(), carrot);
+    } else if(player_input == "e") {
+      farm.end_day();
     }
   }
 }

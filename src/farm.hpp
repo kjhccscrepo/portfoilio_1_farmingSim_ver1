@@ -19,4 +19,5 @@ class Farm {
     int number_of_columns();
     std::string get_symbol(int row, int column);
     void plant(int row, int column, Plot *plot);
+    void end_day();
 };
