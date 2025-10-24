@@ -10,10 +10,10 @@ class plants {
 private:
     std::string myName;
     int myTimeToMature;
-    std::vector<char> myStates;
+    std::vector<std::string> myStates;
     int ticks;
     bool canHarvest;
-    char myDisplay;
+    std::string myDisplay;
     int getDisplayPosition() const;
     bool isGrown() const;
     lootTable plantHarvest;
@@ -24,8 +24,9 @@ private:
 public:
     explicit plants(const plantData &data, lootTable harvestDrops, lootTable seedDrops);
     void tickUpdate();
-    char getDisplay() const;
+
+    std::string getDisplay() const;
     plants *returnMe();
 
-    produce returnProduce();
+    produce returnProduce() const;
 };

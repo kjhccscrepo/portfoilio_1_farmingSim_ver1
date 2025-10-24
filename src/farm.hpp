@@ -6,11 +6,10 @@ class farm {
 private:
     std::vector<std::vector<soil>> farmland;
 public:
-    farm(int width, int depth);
-    int getYUpBound();
-    int getXUpBound();
-    char getSymbol(const int &x, const int &y);
-
+    farm(int x, int y);
+    int getYUpBound() const;
+    int getXUpBound() const;
+    std::string getSymbol(const int &x, const int &y) const;
     void end_FarmDay();
 
 };

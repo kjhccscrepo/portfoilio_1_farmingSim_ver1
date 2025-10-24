@@ -6,17 +6,17 @@
 class player {
 private:
     std::vector<items> *myInventory;
-    char myAvatar;
+    std::string myAvatar;
     float myMoney;
     std::string myName;
     int x;
     int y;
 public:
-    explicit player(std::vector<items> *inventory, char avatar, const std::string &name);
-    player();
-    char getAvatar();
+    explicit player(std::vector<items> *inventory, const std::string &avatar, const std::string &name);
+    explicit player();
+    std::string getAvatar() const;
 
-    int getY();
-    int getX();
+    int getY() const;
+    int getX() const;
 
 };

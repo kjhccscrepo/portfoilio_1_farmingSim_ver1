@@ -35,7 +35,7 @@ void plants::tickUpdate() {
     }
 }
 
-char plants::getDisplay() const {
+std::string plants::getDisplay() const {
     return myDisplay;
 }
 
@@ -43,7 +43,7 @@ plants *plants::returnMe() {
     return this;
 }
 
-produce plants::returnProduce() {
+produce plants::returnProduce() const {
     return *myProduct;
 }
 

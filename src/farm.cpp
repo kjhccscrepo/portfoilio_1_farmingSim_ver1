@@ -1,26 +1,19 @@
 #include "farm.hpp"
 
-farm::farm(int width, int depth) {
-    farmland.resize(width);
-    for (int i = 0; i < depth; i++) {
-        farmland[i].resize(depth);
-    }
-    for (int j = 0; j < width; j++) {
-        for (int k = 0; k < depth; k++) {
-            farmland[j][k] = soil();
-        }
+farm::farm(int x, int y) {
+    this->farmland.resize(x);
+    for (int iX = 0; iX < x; iX++) {
+        this->farmland[iX].resize(y);
     }
 }
 
-int farm::getYUpBound() {
-    return farmland[0].size();
-}
-
-int farm::getXUpBound() {
+int farm::getXUpBound() const {
     return farmland.size();
 }
-
-char farm::getSymbol(const int &x, const int &y) {
+int farm::getYUpBound() const {
+    return farmland[0].size();
+}
+std::string farm::getSymbol(const int &x, const int &y) const {
     return farmland[x][y].getDisplay();
 }
 

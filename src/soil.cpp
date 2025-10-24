@@ -3,18 +3,20 @@ soil::soil(const int &gradeTier, const std::string &name) {
     this->grade = gradeTier;
     this->myName = name;
     this->isOccupied = false;
-    myDisplay = '~';
+    this->myPlant = nullptr;
+    this->myDisplay = "~";
 }
 soil::soil() {
     this->grade = 0;
     this->myName = "farmland";
     this->isOccupied = false;
-    myDisplay = '~';
+    this->myPlant = nullptr;
+    this->myDisplay = "~";
 }
 void soil::assignSeed(seeds *initializeSeed) {
-    myPlant = new plants(*initializeSeed->getMyPlant());
-    myDisplay = myPlant->getDisplay();
-    isOccupied = true;
+    this->myPlant = new plants(*initializeSeed->getMyPlant());
+    this->myDisplay = this->myPlant->getDisplay();
+    this->isOccupied = true;
 }
 
 void soil::end_day() {
@@ -22,19 +24,19 @@ void soil::end_day() {
 }
 
 void soil::tick() {
-    if (myPlant != nullptr) {
-        myPlant->tickUpdate();
-        myDisplay = myPlant->getDisplay();
+    if (this->myPlant != nullptr) {
+        this->myPlant->tickUpdate();
+        this->myDisplay = this->myPlant->getDisplay();
     } else {
-        myDisplay = '~';
+        this->myDisplay = "~";
     }
 }
 void soil::harvest() {
     // code go here then....
-    myPlant = nullptr;
+    this->myPlant = nullptr;
 }
 
-char soil::getDisplay() {
+std::string soil::getDisplay() const {
     return myDisplay;
 }
 

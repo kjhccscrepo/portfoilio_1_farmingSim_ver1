@@ -15,7 +15,7 @@ int main() {
     // all this makes a carrot, then puts it as available options in the player inventory.
     //
     // I want to try and find a way to automate at least, some of it, without introducing too much tight coupling.
-    std::vector<char> states_carrot = {'v','V'};
+    std::vector<std::string> states_carrot = {"v","V"};
     plantData data_Carrot(2, "carrot", states_carrot);
     lootTable selfDrop_Carrot(1, 1, 100, 0);
     lootTable seedsDrop_Carrot(1, 2, 50, 0);
@@ -25,7 +25,6 @@ int main() {
     std::vector<items> inventory_player;
     inventory_player.push_back(seeds_Carrot);
     inventory_player.push_back(plant_Carrot.returnProduce());
-
 
     bool gameOver = false;
     std::string userInput;

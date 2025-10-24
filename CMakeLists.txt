@@ -31,16 +31,30 @@ add_executable(main main.cpp
 )
 add_executable(farm_test tests/farm_test.cpp
         src/farm.cpp
-        src/soil.cpp)
+        src/soil.cpp
+        src/plants.cpp
+        src/seeds.cpp
+        src/items.cpp
+        src/produce.cpp
+        src/plantData.cpp
+        src/lootTable.cpp)
 add_executable(farm_brain_test tests/farm_brain_test.cpp
         src/farm_brain.cpp
         src/farm.cpp
         src/soil.cpp
+        src/plants.cpp
+        src/seeds.cpp
+        src/items.cpp
+        src/produce.cpp
+        src/plantData.cpp
+        src/lootTable.cpp
         src/player.cpp)
 add_executable(items_test tests/items_test.cpp
         src/items.cpp)
 add_executable(plants_test tests/plants_test.cpp
         src/plants.cpp
+        src/items.cpp
+        src/produce.cpp
         src/plantData.cpp
         src/lootTable.cpp
         )
@@ -53,7 +67,12 @@ add_executable(player_test tests/player_test.cpp
         src/seeds.cpp)
 add_executable(soil_test tests/soil_test.cpp
         src/soil.cpp
-        src/plants.cpp)
+        src/plants.cpp
+        src/seeds.cpp
+        src/items.cpp
+        src/produce.cpp
+        src/plantData.cpp
+        src/lootTable.cpp)
 add_executable(produce_test tests/produce_test.cpp
         src/produce.cpp
         src/items.cpp)

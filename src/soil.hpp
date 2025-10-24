@@ -7,18 +7,18 @@ class soil {
 private:
     int grade;
     std::string myName;
-    char myDisplay;
+    std::string myDisplay;
     plants *myPlant;
     bool isOccupied;
 public:
     explicit soil(const int &gradeTier, const std::string &name);
-    soil();
+    explicit soil();
     void assignSeed(seeds *initializeSeed);
 
     void end_day();
 
     void tick();
     void harvest();
-    char getDisplay();
+    std::string getDisplay() const;
     ~soil();
 };
