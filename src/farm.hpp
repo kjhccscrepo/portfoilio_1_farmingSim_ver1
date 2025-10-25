@@ -23,3 +23,6 @@ public:
     void end_day();
     void set_soil();
 };
+// to my understanding the [[nodiscard]] is mostly just here for MY compiler so that if I encounted runtime errors
+//      during testing it will save that value and return keep it briefly so that I could more easily figure out
+//      a problem.

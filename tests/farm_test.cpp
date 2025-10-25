@@ -7,13 +7,12 @@
 #include "../src/farm.hpp"
 #include "../src/plants/carrot.hpp"
 #include "../src/plants/melon.hpp"
-#include "../src/plants.hpp"
+#include "../src/plant.hpp"
 #include "../src/plot.hpp"
 #include "../src/soil.hpp"
-#include "../src/seeds.hpp"
+#include "../src/items/seeds.hpp"
 #include "../src/item.hpp"
-#include "../src/produce.hpp"
-
+#include "../src/items/produce.hpp"
 TEST_CASE( "it can be initialized with a single plot" ) {
   Player player;
   Farm farm(1, 1, &player);

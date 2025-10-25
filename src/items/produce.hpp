@@ -1,14 +1,14 @@
 #pragma once
-#include "item.hpp"
-#include "plants.hpp"
+#include "../item.hpp"
+#include "../plant.hpp"
 
-class seeds final : public item {
+class produce final : public item {
 private:
     plant *myPlant;
     std::string myName;
     int amount;
 public:
-    explicit seeds(plant *plant_ptr);
+    explicit produce(plant *plant_ptr);
     std::string getMyName() override;
     void increase_quantity() override;
     void decrease_quantity() override;

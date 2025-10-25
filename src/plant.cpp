@@ -1,4 +1,4 @@
-#include "plants.hpp"
+#include "plant.hpp"
 bool plant::isGrown() const {
     if (age >= mature_time) {
         return true;

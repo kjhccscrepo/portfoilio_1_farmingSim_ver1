@@ -2,10 +2,7 @@
 #include <vector>
 #include "item.hpp"
 #include "inventory.hpp"
-
 // base class for a plant.
-
-#include "plot.hpp"
 class plant : public Plot {
 public:
     std::string name;

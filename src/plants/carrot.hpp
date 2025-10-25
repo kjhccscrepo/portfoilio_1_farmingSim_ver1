@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>
-#include "../plants.hpp"
+#include "../plant.hpp"
 class Carrot : public plant {
 public:
     Carrot() {

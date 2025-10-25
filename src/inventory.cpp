@@ -37,10 +37,10 @@ void inventory::add_item_X_times(item *item_ptr, const int &i) {
 }
 bool inventory::can_remove(item *item_ptr) {
     int item_position = has(item_ptr);
-    if (item_position >= 0) { // if this returns 0 or greater, then the item at that slot exists
-        if (myInventory.at(item_position)->quantity() > 0) {
+    if (item_position >= 0) {
+        if (myInventory[item_position]->quantity() > 0) {
             return true;
-        } // if it has less than 1, it cannot be taken anymore
+        }
         return false;
     }
     return false;
@@ -51,11 +51,11 @@ void inventory::remove_item(item *item_ptr) {
         myInventory[item_position]->decrease_quantity();
     } // can't remove do don't do anything.
 }
-std::stringstream inventory::inventory_stream() {
+std::stringstream inventory::inventory_stream() const {
     std::stringstream inventoryStringStream;
     for (int i = 0; i < myInventory.size(); i++) {
         inventoryStringStream << myInventory[i]->getMyName();
-        inventoryStringStream << ", ";
+        inventoryStringStream << ", \t";
         inventoryStringStream << myInventory[i]->quantity();
         inventoryStringStream << "x\n";
     }
@@ -77,7 +77,6 @@ bool inventory::is_first_item_plantable() const {
 std::string inventory::first_name() const {
     return myInventory[0]->getMyName();
 }
-
 int inventory::mySize() const {
     return myInventory.size();
 }
@@ -87,11 +86,21 @@ bool inventory::is_X_item_plantable(int x) const {
     }
     return false;
 }
-
-void inventory::remove_1_seed() {
+void inventory::remove_1_seed() const {
     myInventory[0]->decrease_quantity();
 }
-
-Plot *inventory::pointer_to_plot() {
+Plot *inventory::pointer_to_plot() const {
     return this->myInventory[0]->pointer();
+}
+int inventory::how_many_types_of_things() const {
+    if (myInventory.empty()) {
+        return 0;
+    }
+    return myInventory.size();
+}
+std::string inventory::getSelectedSeed() const {
+    if (myInventory[0]->isSeed()) {
+        return first_name();
+    }
+    return "none";
 }

@@ -22,5 +22,5 @@ int produce::quantity() {
 }
 
 Plot *produce::pointer() {
-    return nullptr;
+    return myPlant;
 }

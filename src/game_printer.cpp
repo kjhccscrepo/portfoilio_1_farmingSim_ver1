@@ -1,9 +1,10 @@
 #include "game_printer.hpp"
-GamePrinter::GamePrinter(FarmPrinter *farm_printer_ptr, Player *pPointer) {
+GamePrinter::GamePrinter(FarmPrinter *farm_printer_ptr, inventory *iIPointer) {
     myFarmPrinted = farm_printer_ptr;
-    myPlayerPointer = pPointer;
+    myInventoryPointer = iIPointer;
     generate_info();
 }
+
 void GamePrinter::generate_legend() {
     legend_print.str("");
     legend_print.clear();
@@ -25,10 +26,10 @@ void GamePrinter::generate_inventory() {
     inventory_print.str("");
     inventory_print.clear();
     std::string line;
-    std::string items = (myPlayerPointer->getInventoryString());
+    std::string items = (myInventoryPointer->inventory_stream().str());
     int counter = 1;
     inventory_print << "INVENTORY\n";
-    int maxSize = myPlayerPointer->how_many_types_of_things();
+    int maxSize = myInventoryPointer->how_many_types_of_things();
     for (int i = 0; i < maxSize; i++) {
         inventory_print << counter << ":\t";
         inventory_print << getStreamLine(items, i);
@@ -36,13 +37,13 @@ void GamePrinter::generate_inventory() {
         counter++;
     }
     inventory_print << "r:\treturn to the game\n";
-    inventory = inventory_print.str();
+    inventory_p = inventory_print.str();
 }
 void GamePrinter::generate_info() {
     info_print.str("");
     info_print.clear();
     info_print << "DAY:\t" << myFarmPrinted->days_to_print() << "\n";
-    info_print << "Current Seed:\t" << myPlayerPointer->getSelectedSeed() << "\n";
+    info_print << "Current Seed:\t" << myInventoryPointer->getSelectedSeed() << "\n";
     info_print << "l:\tview controls\n";
     info_print << "i:\tview inventory\n";
     info_print << "o:\tchange selected seed\n";
@@ -60,7 +61,7 @@ std::string GamePrinter::prettyPrint_Game() {
     int i = 0;
     while (std::getline(input_stream, farm_line)) {
         game_stream << farm_line;
-        if (i < 4) {
+        if (i < 7) {
             game_stream << "\t\t";
             game_stream << getStreamLine(info, i);
             i++;
@@ -73,7 +74,7 @@ std::string GamePrinter::prettyPrint_Legend() {
     return legend;
 }
 std::string GamePrinter::prettyPrint_Inventory() {
-    return inventory;
+    return inventory_p;
 }
 std::string GamePrinter::getStreamLine(const std::string &input_string, const int &n) {
     std::string line;

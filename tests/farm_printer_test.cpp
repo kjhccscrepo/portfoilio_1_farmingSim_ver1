@@ -5,16 +5,13 @@
 #include "../src/player.hpp"
 #include "../src/inventory.hpp"
 #include "../src/farm.hpp"
+#include "../src/items/seeds.hpp"
+#include "../src/item.hpp"
+#include "../src/items/produce.hpp"
 #include "../src/plants/carrot.hpp"
 #include "../src/plants/melon.hpp"
-#include "../src/plants.hpp"
-#include "../src/plot.hpp"
-#include "../src/soil.hpp"
-#include "../src/seeds.hpp"
-#include "../src/item.hpp"
-#include "../src/produce.hpp"
+#include "../src/plant.hpp"
 #include "../src/farm_printer.hpp"
-
 TEST_CASE( "it pretty prints a single plot of land" ) {
   Player p;
   Farm farm(1, 1, &p);
@@ -37,7 +34,6 @@ TEST_CASE( "it pretty prints a 1x2 farm" ) {
             << "/ / / \n";
   REQUIRE( printer.prettyPrint().str() == expected.str() );
 }
-
 TEST_CASE( "it pretty prints a 2x1 farm" ) {
   Player player;
   Farm farm(2, 1, &player);
@@ -48,7 +44,6 @@ TEST_CASE( "it pretty prints a 2x1 farm" ) {
             << "/ / / / \n";
   REQUIRE( printer.prettyPrint().str() == expected.str() );
 }
-
 TEST_CASE( "it pretty prints a 2x2 farm" ) {
     Player player;
     Farm farm(2, 2, &player);
