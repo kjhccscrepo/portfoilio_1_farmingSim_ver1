@@ -1,23 +1,23 @@
 #pragma once
-
 #include <string>
 #include <vector>
-
-#include "plot.hpp"
-#include "player.hpp"
+#include "../src/plot.hpp"
+#include "../src/player.hpp"
+#include "../src/soil.hpp"
 
 class Farm {
-  private:
+private:
     int rows;
     int columns;
-    Player *player;
-    std::vector<std::vector<Plot *>> plots;
-
-  public:
-    Farm(int rows, int columns, Player *player);
-    int number_of_rows();
-    int number_of_columns();
-    std::string get_symbol(int row, int column);
+    Player *myPlayer;
+    std::vector<std::vector<Plot*>> plots;
+public:
+    Farm(int ini_rows, int ini_columns, Player *player_ptr);
+    int harvest_val();
+    [[nodiscard]] int row_capacity() const;
+    [[nodiscard]] int column_capacity() const;
+    [[nodiscard]] std::string get_symbol(int row, int column) const;
     void plant(int row, int column, Plot *plot);
-    void end_day();
+    void end_day() const;
+    void set_soil();
 };

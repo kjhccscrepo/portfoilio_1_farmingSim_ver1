@@ -8,29 +8,29 @@
 #include "../src/farm_printer.hpp"
 
 TEST_CASE( "it pretty prints a single plot of land" ) {
-  Player player;
-  Farm farm(1, 1, &player);
+  Player p;
+  Farm farm(1, 1, &p);
   FarmPrinter printer(&farm);
-  REQUIRE( printer.pp() == "@ \n" );
+  REQUIRE( printer.prettyPrint() == "@ \n" );
 }
 
 TEST_CASE( "it pretty prints a 1x2 farm" ) {
   Player player;
   Farm farm(1, 2, &player);
   FarmPrinter printer(&farm);
-  REQUIRE( printer.pp() == "@ . \n" );
+  REQUIRE( printer.prettyPrint() == "@ . \n" );
 }
 
 TEST_CASE( "it pretty prints a 2x1 farm" ) {
   Player player;
   Farm farm(2, 1, &player);
   FarmPrinter printer(&farm);
-  REQUIRE( printer.pp() == "@ \n. \n" );
+  REQUIRE( printer.prettyPrint() == "@ \n. \n" );
 }
 
 TEST_CASE( "it pretty prints a 2x2 farm" ) {
   Player player;
   Farm farm(2, 2, &player);
   FarmPrinter printer(&farm);
-  REQUIRE( printer.pp() == "@ . \n. . \n" );
+  REQUIRE( printer.prettyPrint() == "@ . \n. . \n" );
 }

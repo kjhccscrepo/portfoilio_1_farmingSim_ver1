@@ -1,10 +1,14 @@
 #pragma once
 
-class FarmPrinter {
-  private:
-    Farm *farm;
+#include <string>
+#include <sstream>
+#include "farm.hpp"
 
-  public:
-    FarmPrinter(Farm *farm);
-    std::string pp();
+
+class FarmPrinter {
+private:
+    Farm *farm_to_print;
+public:
+    explicit FarmPrinter(Farm *farm_ptr);
+    [[nodiscard]] std::stringstream prettyPrint() const;
 };

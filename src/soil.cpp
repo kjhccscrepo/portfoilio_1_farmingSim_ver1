@@ -7,3 +7,7 @@ std::string Soil::symbol() {
 void Soil::end_day() {
   // no-op
 }
+
+int Soil::harvest() {
+  return 1;
+}

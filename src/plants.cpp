@@ -1,49 +1,68 @@
 #include "plants.hpp"
-
-
-
-int plants::getDisplayPosition() const {
-    return (ticks / myTimeToMature) * (myStates.size() - 1);
-}
-bool plants::isGrown() const {
-    if (ticks <= myTimeToMature) {
+bool plant::isGrown() const {
+    if (age >= mature_time) {
         return true;
     }
     return false;
 }
-
-plants::plants(const plantData &data, lootTable harvestDrops, lootTable seedDrops) {
-    this->plantHarvest = harvestDrops;
-    this->seedHarvest = seedDrops;
-    this->myTimeToMature = data.timeToGrow;
-    this->myName = data.name;
-    this->myStates = data.states;
-    ticks = 0;
-    canHarvest = false;
-    myDisplay = myStates[0];
-    this->myProduct = new produce(data.name);
-}
-
-
-void plants::tickUpdate() {
+std::string plant::symbol() {
     if (!isGrown()) {
-        ticks++;
-        myDisplay = myStates[getDisplayPosition()];
-        if (isGrown()) {
-            canHarvest = true;
+        return myStates[(age / mature_time) * (myStates.size() - 1)];
+    }
+    return myStates[(myStates.size() - 1)];
+}
+int plant::seedDrops() const {
+    int rand_num = (rand() % (sum_odds(weighted_odds_seeds)));
+    for (int i = 0; i < weighted_odds_seeds.size(); i++) {
+        if (rand_num <= oddsOffset(i, weighted_odds_seeds)) {
+            return drop_amount_seed[i];
         }
     }
+    return 1; // if it somehow reaches the end
 }
 
-std::string plants::getDisplay() const {
-    return myDisplay;
+int plant::produceDrops() const {
+    int rand_num = (rand() % (sum_odds(weighted_odds_produce)));
+    for (int i = 0; i < weighted_odds_produce.size(); i++) {
+        if (rand_num <= oddsOffset(i, weighted_odds_produce)) {
+            return drop_amount_produce[i];
+        }
+    }
+    return 1; // if it somehow reaches the end
+}
+std::string plant::myName() const {
+    return name;
+}
+int plant::sum_odds(const std::vector<int> &odds) {
+    int sum = 0;
+    for (int i = 0; i < odds.size(); i++) {
+        sum += odds[i];
+    }
+    return sum;
+}
+int plant::oddsOffset(const int &iteration, const std::vector<int> &odds) {
+    int offset = 0;
+    for (int i = 0; i <= iteration; i++) {
+        offset += odds[i];
+    }
+    return offset;
 }
 
-plants *plants::returnMe() {
-    return this;
+void plant::link_this_class(item *seed_pointer, item *produce_pointer, inventory *inventory_pointer) {
+    my_seed = seed_pointer;
+    my_produce = produce_pointer;
+    my_inventory = inventory_pointer;
 }
 
-produce plants::returnProduce() const {
-    return *myProduct;
+int plant::harvest() {
+    if (isGrown()) {
+        this->my_inventory->add_item_X_times(my_seed, seedDrops());
+        this->my_inventory->add_item_X_times(my_produce, produceDrops());
+        return 3;
+    }
+    return 2;
 }
 
+void plant::end_day() {
+    age += 1;
+}

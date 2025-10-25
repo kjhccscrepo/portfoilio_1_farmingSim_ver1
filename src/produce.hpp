@@ -1,10 +1,18 @@
 #pragma once
-#include "items.hpp"
+#include "item.hpp"
+#include "plants.hpp"
 
-class produce : public items {
+class produce final : public item {
 private:
-    friend class plants;
-
+    plant *myPlant;
+    std::string myName;
+    int amount;
 public:
-    explicit produce(const std::string &name);
+    explicit produce(plant *plant_ptr);
+    std::string getMyName() override;
+    void increase_quantity() override;
+    void decrease_quantity() override;
+    bool isSeed() override;
+    int quantity() override;
+    Plot *pointer() override;
 };

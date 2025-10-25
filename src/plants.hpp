@@ -1,32 +1,33 @@
 #pragma once
-#include <string>
 #include <vector>
-#include "produce.hpp"
-#include "lootTable.hpp"
-#include "plantData.hpp"
+#include "item.hpp"
+#include "inventory.hpp"
 
+// base class for a plant.
 
-class plants {
-private:
-    std::string myName;
-    int myTimeToMature;
-    std::vector<std::string> myStates;
-    int ticks;
-    bool canHarvest;
-    std::string myDisplay;
-    int getDisplayPosition() const;
-    bool isGrown() const;
-    lootTable plantHarvest;
-    lootTable seedHarvest;
-
-    produce *myProduct;
-
+#include "plot.hpp"
+class plant : public Plot {
 public:
-    explicit plants(const plantData &data, lootTable harvestDrops, lootTable seedDrops);
-    void tickUpdate();
+    std::string name;
+    int age = 0;
+    int mature_time = 0;
+    std::vector<std::string> myStates;
+    std::vector<int> drop_amount_seed;
+    std::vector<int> weighted_odds_seeds;
+    std::vector<int> drop_amount_produce;
+    std::vector<int> weighted_odds_produce;
+    item *my_seed = nullptr;
+    item *my_produce = nullptr;
+    inventory *my_inventory = nullptr;
 
-    std::string getDisplay() const;
-    plants *returnMe();
-
-    produce returnProduce() const;
+    [[nodiscard]] bool isGrown() const;
+    std::string symbol() override;
+    void end_day() override;
+    [[nodiscard]] int seedDrops() const;
+    [[nodiscard]] int produceDrops() const;
+    [[nodiscard]] std::string myName() const;
+    static int sum_odds(const std::vector<int> &odds);
+    static int oddsOffset(const int &iteration, const std::vector<int> &odds);
+    void link_this_class(item *seed_pointer, item *produce_pointer, inventory *inventory_pointer);
+    int harvest() override;
 };
