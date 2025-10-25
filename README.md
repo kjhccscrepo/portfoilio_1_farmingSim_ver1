@@ -1,35 +1,16 @@
 # Farming Simulator (C++)
 
-This is a template repository for our semester-long portfolio project. Create a new repository on GitHub to house your code. Be sure to make the repository public so that I can view and grade it.
+This is a project for csc122 at Harper College.
 
-We will use [CMake][cmake] to build executables (e.g. tests, the driver program, the benchmarks, etc.). Additionally, we will use [Catch2][catch2] for unit testing and benchmarking.
+### You begin the game with a limited supply of seeds, and can get more seeds by growing crops
 
-## Building Executables With CMake
-
-You can use CMake to compile and build the executables for the project. First, you need to create a `build/` directory in the project. The build directory will house all of the compiled files as well as the `Makefile` for the project. Note that we do NOT check the `build/` directory into version control since each person will have to regenerate the executables on their own machine.
-
-```bash
-mkdir build
-cd build
-```
-
-Once you are inside of the build directory, you can run the following command to build all of the executables for the project:
-
-```bash
-cmake .. && make
-```
-
-## Testing the App
-
-Any tests that you define in the `tests/` directory must have a corresponding entry in `CMakeLists.txt`. After you build executables using CMake, you can run the corresponding test files from within the `build/` directory.
-
-## Running the App
-
-The `main.cpp` file at the root of the project must have a corresponding entry in `CMakeLists.txt`. After you build executables using CMake, you can run the driver program from within the `build/` directory.
-
-## Running Benchmarks
-
-Benchmarking is provided with Catch2. You can write benchmarking assertions alongside test assertions right in your test files.
-
-[catch2]: https://github.com/catchorg/Catch2
-[cmake]: https://cmake.org/
+## Controls
+- You can move around with WASD.
+- You can view your inventory with "i"
+- You can plant your current selected seed with "p"
+- You can change your selected seed with "o"
+- You can harvest the crop with "h" (if its grown)
+- You can view controls in game with "l"
+- You can quit the game with "q"
+- You (currently) end the day by with "e"
+- You can exit sub menus by with "r"
