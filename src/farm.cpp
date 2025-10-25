@@ -12,11 +12,12 @@ Farm::Farm(const int ini_rows, const int ini_columns, Player *player_ptr) {
         }
     plots.push_back(row);
     }
+  dayCounter = 1;
 }
 
 int Farm::harvest_val() {
-    if (plots[myPlayer->row()][myPlayer->column()] != nullptr) {
-      return plots[myPlayer->row()][myPlayer->column()]->harvest();
+    if (plots[myPlayer->getX()][myPlayer->getY()] != nullptr) {
+      return plots[myPlayer->getX()][myPlayer->getY()]->harvest();
     }
   return 0;
 }
@@ -29,12 +30,16 @@ int Farm::column_capacity() const {
   return columns;
 }
 
-std::string Farm::get_symbol(int row, int column) const {
-  if(myPlayer->row() == row && myPlayer->column() == column) {
+std::string Farm::get_symbol(const int x, const int y) {
+  if(myPlayer->getX() == x && myPlayer->getY() == y) {
     return myPlayer->getAvatar();
   } else {
-    return plots[row][column]->symbol();
+    return plots[x][y]->symbol();
   }
+}
+
+int Farm::getDays() const {
+  return dayCounter;
 }
 
 void Farm::plant(int row, int column, Plot *plot) {
@@ -43,14 +48,16 @@ void Farm::plant(int row, int column, Plot *plot) {
   delete current_plot;
 }
 
-void Farm::end_day() const {
+void Farm::end_day() {
   for(int i = 0; i < rows; i++) {
     for(int j = 0; j < columns; j++) {
       plots.at(i).at(j)->end_day();
     }
   }
+  dayCounter = 1 + dayCounter;
 }
 
 void Farm::set_soil() {
-    plots[myPlayer->row()][myPlayer->column()] = new Soil();
+    plots[myPlayer->getX()][myPlayer->getY()] = new Soil();
+    plots[myPlayer->getX()][myPlayer->getY()]->end_day();
 }

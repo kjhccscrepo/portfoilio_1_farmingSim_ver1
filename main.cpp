@@ -59,7 +59,7 @@ int main() {
         } else if(player_input == "p") { // plant
             if (game_farm.harvest_val() == 1) { // it is soil and can be planted!
                 if (playerInventory.is_first_item_plantable()) { // a seed has been selected and verified!
-                    game_farm.plant(game_player.row(), game_player.column(), playerInventory.pointer_to_plot());
+                    game_farm.plant(game_player.getX(), game_player.getY(), playerInventory.pointer_to_plot());
                     playerInventory.remove_1_seed();
                 }
             }
@@ -72,23 +72,24 @@ int main() {
             game_printer.generate_inventory();
             while (in_menus) {
                 ansi_clear();
-                std::cout << game_printer.prettyPrint_Inventory() << std::endl;
                 std::cout << "enter r to cancel, or...\n";
+                std::cout << game_printer.prettyPrint_Inventory() << std::endl;
                 std::cout << "Select an appropriate seed by entering its slot in your inventory.";
                 std::cout << std::endl;
                 std::cin >> player_input;
                 if(player_input == "r") {
                     in_menus = false;
-                } else if (std::stoi(player_input) <= 1 && std::stoi(player_input) >= (playerInventory.mySize())) {
-                    if (playerInventory.is_X_item_plantable(std::stoi(player_input) - 1)) {
-                        playerInventory.move_item_to_front(std::stoi(player_input) - 1);
-                        in_menus = false;
+                } else if (isdigit(player_input.front())) {
+                    if (std::stoi(player_input) > 0 && std::stoi(player_input) <= (playerInventory.mySize())) {
+                        if (playerInventory.is_X_item_plantable(std::stoi(player_input) - 1)) {
+                            playerInventory.move_item_to_front(std::stoi(player_input) - 1);
+                            in_menus = false;
+                        }
                     } else {
                         std::cout << "invalid selection\n";
                     }
                 }
             }
-
         } else if(player_input == "e") { // tick day
             game_farm.end_day();
         } else if (player_input == "i") { // show inventory

@@ -11,4 +11,5 @@ private:
 public:
     explicit FarmPrinter(Farm *farm_ptr);
     [[nodiscard]] std::stringstream prettyPrint() const;
+    int days_to_print() const;
 };

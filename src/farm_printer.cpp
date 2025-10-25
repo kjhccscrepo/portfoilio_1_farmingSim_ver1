@@ -30,3 +30,7 @@ std::stringstream FarmPrinter::prettyPrint() const {
   output << "\n";
   return output;
 }
+
+int FarmPrinter::days_to_print() const {
+  return farm_to_print->getDays();
+}

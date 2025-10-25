@@ -10,5 +10,5 @@ public:
     virtual void increase_quantity() = 0;
     virtual void decrease_quantity() = 0;
     virtual int quantity() = 0;
-    virtual Plot *pointer();
+    virtual Plot *pointer() = 0;
 };

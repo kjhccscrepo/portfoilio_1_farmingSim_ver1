@@ -14,26 +14,56 @@ FetchContent_Declare(
 )
 
 FetchContent_MakeAvailable(Catch2)
+add_executable(carrot_test tests/carrot_test.cpp
+        src/plants/carrot.hpp
+        src/plants.cpp
+        src/plot.hpp
+        src/inventory.cpp
+)
+add_executable(melon_test tests/melon_test.cpp
+        src/plants/melon.hpp
+        src/plants.cpp
+        src/plot.hpp
+        src/inventory.cpp
+)
+add_executable(onion_test tests/onion_test.cpp
+        src/plants/onion.hpp
+        src/plants.cpp
+        src/plot.hpp
+        src/inventory.cpp
+)
+
+add_executable(farm_test tests/farm_test.cpp
+        src/player.cpp
+        src/inventory.cpp
+        src/farm.cpp
+        src/soil.cpp
+        src/plot.hpp
+        src/plants.cpp
+        src/plants/carrot.hpp
+        src/item.hpp
+        src/seeds.cpp
+        src/produce.cpp
+)
 
 add_executable(farm_printer_test tests/farm_printer_test.cpp
         src/farm_printer.cpp
+        src/player.cpp
+        src/inventory.cpp
         src/farm.cpp
         src/soil.cpp
-        src/player.cpp
-)
-add_executable(farm_test tests/farm_test.cpp
-        src/farm.cpp
-        src/soil.cpp
-        src/plants/carrot.hpp
-        src/player.cpp
+        src/plot.hpp
         src/plants.cpp
+        src/plants/carrot.hpp
+        src/item.hpp
+        src/seeds.cpp
+        src/produce.cpp
 )
+
 add_executable(soil_test tests/soil_test.cpp
         src/soil.cpp
 )
-add_executable(carrot_test tests/carrot_test.cpp
-        src/plants/carrot.hpp
-)
+
 add_executable(player_test tests/player_test.cpp
         src/player.cpp
         src/inventory.cpp
@@ -57,8 +87,11 @@ add_executable(main main.cpp
         src/seeds.cpp
         src/soil.cpp)
 
+target_link_libraries(carrot_test PRIVATE Catch2::Catch2WithMain)
+target_link_libraries(melon_test PRIVATE Catch2::Catch2WithMain)
+target_link_libraries(onion_test PRIVATE Catch2::Catch2WithMain)
+
 target_link_libraries(farm_test PRIVATE Catch2::Catch2WithMain)
 target_link_libraries(farm_printer_test PRIVATE Catch2::Catch2WithMain)
 target_link_libraries(soil_test PRIVATE Catch2::Catch2WithMain)
-target_link_libraries(carrot_test PRIVATE Catch2::Catch2WithMain)
 target_link_libraries(player_test PRIVATE Catch2::Catch2WithMain)

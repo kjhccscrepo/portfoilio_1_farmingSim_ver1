@@ -6,18 +6,18 @@
 
 TEST_CASE( "it starts the player in row zero, column zero" ) {
   Player test_player;
-  REQUIRE( test_player.row() == 0 );
-  REQUIRE( test_player.column() == 0 );
+  REQUIRE( test_player.getX() == 0 );
+  REQUIRE( test_player.getY() == 0 );
 }
 TEST_CASE( "it moves the player to the right" ) {
   Player test_player;
   test_player.move_right();
-  REQUIRE( test_player.row() == 0 );
-  REQUIRE( test_player.column() == 1 );
+  REQUIRE( test_player.getX() == 0 );
+  REQUIRE( test_player.getY() == 1 );
 }
 TEST_CASE( "it moves the player down" ) {
   Player test_player;
   test_player.move_down();
-  REQUIRE( test_player.row() == 1 );
-  REQUIRE( test_player.column() == 0 );
+  REQUIRE( test_player.getX() == 1 );
+  REQUIRE( test_player.getY() == 0 );
 }

@@ -15,12 +15,12 @@ void produce::decrease_quantity() {
     amount--;
 }
 bool produce::isSeed() {
-    return true;
+    return false;
 }
 int produce::quantity() {
     return amount;
 }
 
-Plot * produce::pointer() {
+Plot *produce::pointer() {
     return nullptr;
 }

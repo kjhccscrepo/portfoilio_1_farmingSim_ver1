@@ -14,8 +14,8 @@ private:
 public:
     Player(inventory *playerStuff, const std::string &pAvatar);
     Player();
-    [[nodiscard]] int row() const;
-    [[nodiscard]] int column() const;
+    [[nodiscard]] int getX() const;
+    [[nodiscard]] int getY() const;
     void move_up();
     void move_down();
     void move_right();
@@ -27,4 +27,5 @@ public:
     int how_many_types_of_things() const;
     std::string getAvatar();
     void setSeed(const int &x) const;
+    void setUpCheck();
 };

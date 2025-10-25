@@ -41,16 +41,19 @@ void GamePrinter::generate_inventory() {
 void GamePrinter::generate_info() {
     info_print.str("");
     info_print.clear();
+    info_print << "DAY:\t" << myFarmPrinted->days_to_print() << "\n";
     info_print << "Current Seed:\t" << myPlayerPointer->getSelectedSeed() << "\n";
     info_print << "l:\tview controls\n";
     info_print << "i:\tview inventory\n";
+    info_print << "o:\tchange selected seed\n";
+    info_print << "p:\tplant selected seed\n";
     info_print << "q:\tquit the game\n";
     info = info_print.str();
 }
 std::string GamePrinter::prettyPrint_Game() {
+    generate_info();
     game_stream.str("");
     game_stream.clear();
-
     std::istringstream input_stream;
     input_stream.str(myFarmPrinted->prettyPrint().str());
     std::string farm_line;

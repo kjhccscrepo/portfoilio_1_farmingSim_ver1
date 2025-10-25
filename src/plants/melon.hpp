@@ -15,4 +15,3 @@ public:
         weighted_odds_produce = {10, 20, 20, 15, 10, 5};
     }
 };
-

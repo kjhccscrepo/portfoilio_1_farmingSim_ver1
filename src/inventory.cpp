@@ -61,18 +61,12 @@ std::stringstream inventory::inventory_stream() {
     }
     return inventoryStringStream;
 }
-void inventory::move_item_to_front(item *item_ptr) {
-    int item_position = has(item_ptr);
-    if (item_position >= 0) {
-        std::rotate(myInventory.begin(), myInventory.begin() + item_position, myInventory.end());
-    }
-}
 void inventory::move_item_to_front(const int &x) {
-    if (myInventory.size() >= x) {
+    if (myInventory.size() > x) {
         std::rotate(myInventory.begin(), myInventory.begin() + x, myInventory.end());
     }
 }
-bool inventory::is_first_item_plantable() {
+bool inventory::is_first_item_plantable() const {
     if (myInventory[0]->isSeed()) {
         if (myInventory[0]->quantity() > 0) {
             return true;
@@ -80,14 +74,14 @@ bool inventory::is_first_item_plantable() {
     }
     return false;
 }
-std::string inventory::first_name() {
+std::string inventory::first_name() const {
     return myInventory[0]->getMyName();
 }
 
 int inventory::mySize() const {
     return myInventory.size();
 }
-bool inventory::is_X_item_plantable(int x) {
+bool inventory::is_X_item_plantable(int x) const {
     if (myInventory[x]->isSeed()) {
         return true;
     }

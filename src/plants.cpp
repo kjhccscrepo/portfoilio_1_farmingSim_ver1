@@ -7,7 +7,7 @@ bool plant::isGrown() const {
 }
 std::string plant::symbol() {
     if (!isGrown()) {
-        return myStates[(age / mature_time) * (myStates.size() - 1)];
+        return myStates[(age * (myStates.size() - 1) / (mature_time))];
     }
     return myStates[(myStates.size() - 1)];
 }

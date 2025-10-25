@@ -15,29 +15,33 @@ Player::Player() {
     maxX = 0;
     maxY = 0;
 }
-int Player::row() const {
+int Player::getX() const {
     return this->current_row;
 }
-int Player::column() const {
+int Player::getY() const {
     return this->current_column;
 }
 void Player::move_up() {
+    setUpCheck();
     if (this->current_column != 0) {
         this->current_column -= 1;
     }
 }
 void Player::move_down() {
+    setUpCheck();
     if (this->current_column != this->maxY) {
         this->current_column += 1;
     }
 }
 void Player::move_right() {
+    setUpCheck();
     if (this->current_row != this->maxX) {
         this->current_row += 1;
     }
 
 }
 void Player::move_left() {
+    setUpCheck();
     if (this->current_row != 0) {
         this->current_row -= 1;
     }
@@ -86,6 +90,12 @@ std::string Player::getAvatar() {
 
 void Player::setSeed(const int &x) const {
     this->myStuff->move_item_to_front(x);
+}
+
+void Player::setUpCheck() {
+    if (maxX == 0 || maxY == 0) {
+    throw "player has unset max";
+    }
 }
 
 
