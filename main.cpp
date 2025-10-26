@@ -1,19 +1,20 @@
+#ifndef MAIN_H
+#define MAIN_H
 #include <iostream>
 #include <random>
 #include "src/ansi_clear.hpp"
+#include "src/soil.hpp"
+#include "src/item.hpp"
 #include "src/plants/carrot.hpp"
 #include "src/plants/melon.hpp"
 #include "src/plants/onion.hpp"
+#include "src/items/seeds.hpp"
+#include "src/items/produce.hpp"
+#include "src/inventory.hpp"
 #include "src/farm.hpp"
 #include "src/farm_printer.hpp"
 #include "src/game_printer.hpp"
-#include "src/inventory.hpp"
-#include "src/item.hpp"
-#include "src/plant.hpp"
 #include "src/player.hpp"
-#include "src/items/seeds.hpp"
-#include "src/items/produce.hpp"
-#include "src/soil.hpp"
 #include "src/plants/zucchini.hpp"
 int main() {
     inventory playerInventory;
@@ -126,3 +127,4 @@ int main() {
     }
     return 0;
 }
+#endif

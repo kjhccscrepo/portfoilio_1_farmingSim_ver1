@@ -1,6 +1,7 @@
-#pragma once
+#ifndef ITEM_H
+#define ITEM_H
 #include <string>
-#include "Plot.hpp"
+class plant;
 // abstract base class
 class item {
 public:
@@ -10,5 +11,6 @@ public:
     virtual void increase_quantity() = 0;
     virtual void decrease_quantity() = 0;
     virtual int quantity() = 0;
-    virtual Plot *pointer() = 0;
+    virtual plant *pointer() = 0;
 };
+#endif

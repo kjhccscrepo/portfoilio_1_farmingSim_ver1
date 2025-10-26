@@ -1,17 +1,19 @@
-#pragma once
+#ifndef ONION_H
+#define ONION_H
 #include <string>
 #include <vector>
 #include "../plant.hpp"
-class Onion : public plant {
+class Onion final : public plant {
 public:
     Onion() {
-        name = "Onion";
-        age = 1;
-        mature_time = 5;
-        myStates = {"y","Y"};
-        drop_amount_seed = {1, 2};
-        weighted_odds_seeds = {90, 10};
-        drop_amount_produce = {2, 3, 4, 5, 6, 7};
-        weighted_odds_produce = {10, 20, 20, 15, 10, 5};
+        setName("Onion");
+        setAge(1);
+        setMatureTime(5);
+        setStates({"y","Y"});
+        setSeedDrops({1, 2});
+        setWeightedOddsSeeds({90, 10});
+        setProduceDrops({2, 3, 4, 5, 6, 7});
+        setWeightedOddsProduces({10, 20, 20, 15, 10, 5});
     }
 };
+#endif

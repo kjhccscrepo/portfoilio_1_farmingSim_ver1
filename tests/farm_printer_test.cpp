@@ -5,13 +5,18 @@
 #include "../src/player.hpp"
 #include "../src/inventory.hpp"
 #include "../src/farm.hpp"
-#include "../src/items/seeds.hpp"
 #include "../src/item.hpp"
+#include "../src/items/seeds.hpp"
 #include "../src/items/produce.hpp"
 #include "../src/plants/carrot.hpp"
 #include "../src/plants/melon.hpp"
 #include "../src/plant.hpp"
 #include "../src/farm_printer.hpp"
+
+const Carrot carrot;
+seeds seed_carrot(&carrot);
+produce produce_carrot(&carrot);
+
 TEST_CASE( "it pretty prints a single plot of land" ) {
   Player p;
   Farm farm(1, 1, &p);

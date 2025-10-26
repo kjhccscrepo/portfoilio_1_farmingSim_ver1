@@ -1,4 +1,7 @@
 #include "plant.hpp"
+
+
+
 bool plant::isGrown() const {
     if (age >= mature_time) {
         return true;
@@ -30,7 +33,8 @@ int plant::produceDrops() const {
     }
     return 1; // if it somehow reaches the end
 }
-std::string plant::myName() const {
+
+std::string plant::myName() {
     return name;
 }
 int plant::sum_odds(const std::vector<int> &odds) {
@@ -61,6 +65,44 @@ int plant::harvest() {
         return 3;
     }
     return 2;
+}
+
+void plant::setName(const std::string &set_name) {
+    name = set_name;
+}
+void plant::setAge(const int &set_age) {
+    age = set_age;
+}
+void plant::setMatureTime(const int &set_mature_time) {
+    mature_time = set_mature_time;
+}
+void plant::setStates(const std::vector<std::string> &set_states) {
+    myStates = set_states;
+}
+void plant::setSeedDrops(const std::vector<int> &set_drop_amount_seed) {
+    drop_amount_seed = set_drop_amount_seed;
+}
+void plant::setWeightedOddsSeeds(const std::vector<int> &set_weighted_odds_seeds) {
+    weighted_odds_seeds = set_weighted_odds_seeds;
+}
+void plant::setProduceDrops(const std::vector<int> &set_drop_amount_produce) {
+    drop_amount_produce = set_drop_amount_produce;
+}
+void plant::setWeightedOddsProduces(const std::vector<int> &set_weighted_odds_produce) {
+    weighted_odds_produce = set_weighted_odds_produce;
+}
+plant::plant(plant *plant_ptr) {
+    this->setName(plant_ptr->name);
+    this->setAge(plant_ptr->age);
+    this->setMatureTime(plant_ptr->mature_time);
+    this->setStates(plant_ptr->myStates);
+    this->drop_amount_seed = (plant_ptr->drop_amount_seed);
+    this->weighted_odds_seeds = (plant_ptr->weighted_odds_seeds);
+    this->drop_amount_produce = (plant_ptr->drop_amount_produce);
+    this->weighted_odds_produce = (plant_ptr->weighted_odds_produce);
+    this->my_seed = plant_ptr->my_seed;
+    this->my_produce = plant_ptr->my_produce;
+    this->my_inventory = plant_ptr->my_inventory;
 }
 void plant::end_day() {
     age += 1;

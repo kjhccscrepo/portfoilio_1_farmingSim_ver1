@@ -1,4 +1,5 @@
-#pragma once
+#ifndef GAME_PRINTER_H
+#define GAME_PRINTER_H
 #include <sstream>
 #include "farm_printer.hpp"
 #include "inventory.hpp"
@@ -24,3 +25,4 @@ class GamePrinter {
     std::string prettyPrint_Inventory();
     static std::string getStreamLine(const std::string& input_string, const int &n);
 };
+#endif

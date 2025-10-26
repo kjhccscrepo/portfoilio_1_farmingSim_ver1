@@ -89,8 +89,9 @@ bool inventory::is_X_item_plantable(int x) const {
 void inventory::remove_1_seed() const {
     myInventory[0]->decrease_quantity();
 }
+
 plant *inventory::pointer_to_plant() const {
-    return dynamic_cast<plant *>(this->myInventory[0]->pointer());
+    return dynamic_cast<plant*>(this->myInventory[0]->pointer());
 }
 int inventory::how_many_types_of_things() const {
     if (myInventory.empty()) {

@@ -1,17 +1,18 @@
-#pragma once
-#include <string>
+#ifndef CARROT_H
+#define CARROT_H
 #include <vector>
 #include "../plant.hpp"
-class Carrot : public plant {
+class Carrot final : public plant {
 public:
     Carrot() {
-        name = "Carrot";
-        age = 1;
-        mature_time = 3;
-        myStates = {"v","V","W"};
-        drop_amount_seed = {1, 2, 3};
-        weighted_odds_seeds = {30, 40, 30};
-        drop_amount_produce = {1, 2};
-        weighted_odds_produce = {90, 10};
+        setName("Carrot");
+        setAge(1);
+        setMatureTime(3);
+        setStates({"v","V","W"});
+        setSeedDrops({1, 2, 3});
+        setWeightedOddsSeeds({30, 40, 30});
+        setProduceDrops({1, 2});
+        setWeightedOddsProduces({90, 10});
     }
 };
+#endif

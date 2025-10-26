@@ -1,5 +1,5 @@
-#pragma once
-
+#ifndef FARM_PRINTER_H
+#define FARM_PRINTER_H
 #include <string>
 #include <sstream>
 #include "farm.hpp"
@@ -11,5 +11,6 @@ private:
 public:
     explicit FarmPrinter(Farm *farm_ptr);
     [[nodiscard]] std::stringstream prettyPrint() const;
-    int days_to_print() const;
+    [[nodiscard]] int days_to_print() const;
 };
+#endif

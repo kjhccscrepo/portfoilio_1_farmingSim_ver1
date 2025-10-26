@@ -1,9 +1,10 @@
-#pragma once
+#ifndef INVENTORY_H
+#define INVENTORY_H
 #include <vector>
 #include <sstream>
 #include <algorithm>
-#include "../src/item.hpp"
 #include "../src/plant.hpp"
+#include "../src/item.hpp"
 
 class inventory {
     std::vector<item*> myInventory;
@@ -13,14 +14,15 @@ public:
     void add_item_X_times(item *item_ptr, const int &i);
     bool can_remove(item *item_ptr);
     void remove_item(item *item_ptr);
-    std::stringstream inventory_stream() const;
+    [[nodiscard]] std::stringstream inventory_stream() const;
     void move_item_to_front(const int &x);
-    bool is_first_item_plantable() const;
-    std::string first_name() const;
+    [[nodiscard]] bool is_first_item_plantable() const;
+    [[nodiscard]] std::string first_name() const;
     [[nodiscard]] int mySize() const;
-    bool is_X_item_plantable(int x) const;
+    [[nodiscard]] bool is_X_item_plantable(int x) const;
     void remove_1_seed() const;
-    plant *pointer_to_plant() const;
-    int how_many_types_of_things() const;
-    std::string getSelectedSeed() const;
+    [[nodiscard]] plant *pointer_to_plant() const;
+    [[nodiscard]] int how_many_types_of_things() const;
+    [[nodiscard]] std::string getSelectedSeed() const;
 };
+#endif

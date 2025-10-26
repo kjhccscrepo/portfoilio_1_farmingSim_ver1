@@ -1,7 +1,6 @@
-#pragma once
+#ifndef PLAYER_H
+#define PLAYER_H
 #include <string>
-#include "inventory.hpp"
-
 class Player {
 private:
     int current_x;
@@ -10,7 +9,7 @@ private:
     int maxX;
     int maxY;
 public:
-    Player(const std::string &pAvatar);
+    explicit Player(const std::string &pAvatar);
     Player();
     [[nodiscard]] int getX() const;
     [[nodiscard]] int getY() const;
@@ -24,3 +23,4 @@ public:
     void better_start_position();
     void change_avatar(char n);
 };
+#endif

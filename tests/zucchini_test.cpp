@@ -4,8 +4,6 @@
 #include <catch2/generators/catch_generators_range.hpp>
 #include "../src/plants/zucchini.hpp"
 #include "../src/plant.hpp"
-#include "../src/plot.hpp"
-#include "../src/inventory.hpp"
 
 TEST_CASE( "it returns a z as its when it is a seedling" ) {
   Zucchini zucchini;

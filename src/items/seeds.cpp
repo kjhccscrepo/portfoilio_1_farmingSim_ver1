@@ -19,6 +19,6 @@ bool seeds::isSeed() {
 int seeds::quantity() {
     return amount;
 }
-Plot *seeds::pointer() {
+plant *seeds::pointer() {
     return myPlant;
 }

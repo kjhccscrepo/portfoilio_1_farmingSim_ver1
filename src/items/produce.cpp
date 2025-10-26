@@ -1,7 +1,6 @@
 #include "produce.hpp"
-
-produce::produce(plant *plant_ptr) {
-    myPlant = plant_ptr;
+produce::produce(plant *plot_ptr) {
+    myPlant = plot_ptr;
     myName = (myPlant->myName() + "(s)");
     amount = 0;
 }
@@ -21,6 +20,6 @@ int produce::quantity() {
     return amount;
 }
 
-Plot *produce::pointer() {
+plant *produce::pointer() {
     return myPlant;
 }

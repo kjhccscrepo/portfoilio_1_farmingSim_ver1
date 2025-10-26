@@ -1,7 +1,7 @@
-#pragma once
+#ifndef PRODUCE_H
+#define PRODUCE_H
 #include "../item.hpp"
 #include "../plant.hpp"
-
 class produce final : public item {
 private:
     plant *myPlant;
@@ -14,5 +14,6 @@ public:
     void decrease_quantity() override;
     bool isSeed() override;
     int quantity() override;
-    Plot *pointer() override;
+    plant *pointer() override;
 };
+#endif
