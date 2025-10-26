@@ -1,9 +1,9 @@
 #pragma once
 #include <vector>
-#include <algorithm>
 #include <sstream>
+#include <algorithm>
 #include "../src/item.hpp"
-#include "../src/plot.hpp"
+#include "../src/plant.hpp"
 
 class inventory {
     std::vector<item*> myInventory;
@@ -20,7 +20,7 @@ public:
     [[nodiscard]] int mySize() const;
     bool is_X_item_plantable(int x) const;
     void remove_1_seed() const;
-    Plot *pointer_to_plot() const;
+    plant *pointer_to_plant() const;
     int how_many_types_of_things() const;
     std::string getSelectedSeed() const;
 };

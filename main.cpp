@@ -50,7 +50,7 @@ int main() {
     while(game_in_progress) {
         bool in_menus = false;
         ansi_clear();
-        std::cout << "\n" << game_printer.prettyPrint_Game() << std::endl;
+        std::cout << game_printer.prettyPrint_Game() << std::endl;
         std::cin >> player_input;
         if(player_input == "q") { // exits game
             game_in_progress = false;
@@ -65,7 +65,8 @@ int main() {
         } else if(player_input == "p") { // plant
             if (farm_obj.harvest_val() == 1) { // it is soil and can be planted!
                 if (playerInventory.is_first_item_plantable()) { // a seed has been selected and verified!
-                    farm_obj.plant(p_Farmer.getX(), p_Farmer.getY(), playerInventory.pointer_to_plot());
+                    plant *new_plant = new plant(playerInventory.pointer_to_plant());
+                    farm_obj.plant(p_Farmer.getX(), p_Farmer.getY(), new_plant);
                     playerInventory.remove_1_seed();
                 }
             }

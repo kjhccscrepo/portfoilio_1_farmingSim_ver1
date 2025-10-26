@@ -2,6 +2,7 @@
 #include <vector>
 #include "item.hpp"
 #include "inventory.hpp"
+#include "plant.hpp"
 // base class for a plant.
 class plant : public Plot {
 public:
@@ -16,7 +17,6 @@ public:
     item *my_seed = nullptr;
     item *my_produce = nullptr;
     inventory *my_inventory = nullptr;
-
     [[nodiscard]] bool isGrown() const;
     std::string symbol() override;
     void end_day() override;

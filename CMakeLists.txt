@@ -14,6 +14,10 @@ FetchContent_Declare(
 )
 
 FetchContent_MakeAvailable(Catch2)
+
+add_executable(soil_test tests/soil_test.cpp
+        src/soil.cpp
+)
 add_executable(carrot_test tests/carrot_test.cpp
         src/plants/carrot.hpp
         src/plant.cpp
@@ -84,9 +88,7 @@ add_executable(game_printer_test tests/game_printer_test.cpp
         src/items/seeds.cpp
         src/items/produce.cpp
 )
-add_executable(soil_test tests/soil_test.cpp
-        src/soil.cpp
-)
+
 add_executable(seeds_test tests/seeds_test.cpp
         src/items/seeds.cpp
         src/item.hpp
@@ -109,20 +111,22 @@ add_executable(player_test tests/player_test.cpp
 )
 add_executable(main main.cpp
         src/ansi_clear.hpp
+        src/plot.hpp
+        src/soil.cpp
+        src/plant.cpp
         src/plants/carrot.hpp
         src/plants/melon.hpp
         src/plants/onion.hpp
+        src/plants/zucchini.hpp
+        src/item.hpp
+        src/items/produce.cpp
+        src/items/seeds.cpp
+        src/inventory.cpp
+        src/player.cpp
         src/farm.cpp
         src/farm_printer.cpp
         src/game_printer.cpp
-        src/inventory.cpp
-        src/item.hpp
-        src/plant.cpp
-        src/player.cpp
-        src/plot.hpp
-        src/items/produce.cpp
-        src/items/seeds.cpp
-        src/soil.cpp)
+)
 
 target_link_libraries(carrot_test PRIVATE Catch2::Catch2WithMain)
 target_link_libraries(melon_test PRIVATE Catch2::Catch2WithMain)

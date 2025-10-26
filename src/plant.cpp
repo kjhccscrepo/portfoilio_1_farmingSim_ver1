@@ -62,7 +62,6 @@ int plant::harvest() {
     }
     return 2;
 }
-
 void plant::end_day() {
     age += 1;
 }

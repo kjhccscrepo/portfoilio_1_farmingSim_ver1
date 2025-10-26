@@ -3,7 +3,7 @@ int inventory::has(item *item_ptr) {
     if (item_ptr == nullptr) {
         return -3; // nullptr
     }
-    if (std::find(myInventory.begin(), myInventory.end(), item_ptr) != myInventory.end()) {
+    if (std::ranges::find(myInventory, item_ptr) != myInventory.end()) {
         for (int position = 0; position < myInventory.size(); position++) {
             if (this->myInventory[position]->getMyName() == item_ptr->getMyName()) {
                 return position;
@@ -63,7 +63,7 @@ std::stringstream inventory::inventory_stream() const {
 }
 void inventory::move_item_to_front(const int &x) {
     if (myInventory.size() > x) {
-        std::rotate(myInventory.begin(), myInventory.begin() + x, myInventory.end());
+        std::ranges::rotate(myInventory, myInventory.begin() + x);
     }
 }
 bool inventory::is_first_item_plantable() const {
@@ -89,8 +89,8 @@ bool inventory::is_X_item_plantable(int x) const {
 void inventory::remove_1_seed() const {
     myInventory[0]->decrease_quantity();
 }
-Plot *inventory::pointer_to_plot() const {
-    return this->myInventory[0]->pointer();
+plant *inventory::pointer_to_plant() const {
+    return dynamic_cast<plant *>(this->myInventory[0]->pointer());
 }
 int inventory::how_many_types_of_things() const {
     if (myInventory.empty()) {
