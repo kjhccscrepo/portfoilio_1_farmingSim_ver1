@@ -50,7 +50,7 @@ int main() {
     while(game_in_progress) {
         bool in_menus = false;
         ansi_clear();
-        std::cout << game_printer.prettyPrint_Game() << std::endl;
+        std::cout << "\n" << game_printer.prettyPrint_Game() << std::endl;
         std::cin >> player_input;
         if(player_input == "q") { // exits game
             game_in_progress = false;

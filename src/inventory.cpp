@@ -99,7 +99,7 @@ int inventory::how_many_types_of_things() const {
     return myInventory.size();
 }
 std::string inventory::getSelectedSeed() const {
-    if (myInventory[0]->isSeed()) {
+    if (myInventory[0]->isSeed() && myInventory[0]->quantity() > 0) {
         return first_name();
     }
     return "none";
