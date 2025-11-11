@@ -5,4 +5,9 @@
 #include "../../src/plants/spinach.hpp"
 #include "../../src/farm_and_friends/plant.hpp"
 
+TEST_CASE( "it returns a x as its when it is a seedling" ) {
+    Spinach spinach;
+    REQUIRE( spinach.symbol() == "x" );
+}
+
 
