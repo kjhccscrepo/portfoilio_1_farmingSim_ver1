@@ -8,5 +8,7 @@ class Soil : public Plot {
     std::string myName() override;
     void end_day() override;
     int harvest() override;
+
+    void water() override;
 };
 #endif

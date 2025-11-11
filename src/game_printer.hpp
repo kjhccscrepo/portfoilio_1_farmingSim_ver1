@@ -1,7 +1,7 @@
 #ifndef GAME_PRINTER_H
 #define GAME_PRINTER_H
 #include <sstream>
-#include "farm_printer.hpp"
+#include "farm_and_friends/farm_printer.hpp"
 #include "inventory.hpp"
 
 class GamePrinter {

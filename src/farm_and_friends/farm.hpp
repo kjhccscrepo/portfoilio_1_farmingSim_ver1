@@ -2,9 +2,9 @@
 #define FARM_H
 #include <string>
 #include <vector>
-#include "../src/plot.hpp"
-#include "../src/player.hpp"
-#include "../src/soil.hpp"
+#include "plot.hpp"
+#include "../player.hpp"
+#include "../farm_and_friends/soil.hpp"
 
 class Farm {
 private:
@@ -23,5 +23,7 @@ public:
     void plant(int row, int column, Plot *plot);
     void end_day();
     void set_soil();
+    void water_plot() const;
+
 };
 #endif

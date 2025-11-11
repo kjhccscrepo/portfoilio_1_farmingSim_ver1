@@ -4,14 +4,14 @@
 #include <catch2/generators/catch_generators_range.hpp>
 #include "../src/player.hpp"
 #include "../src/inventory.hpp"
-#include "../src/farm.hpp"
+#include "../src/farm_and_friends/farm.hpp"
 #include "../src/items/seeds.hpp"
 #include "../src/item.hpp"
 #include "../src/items/produce.hpp"
 #include "../src/plants/carrot.hpp"
 #include "../src/plants/melon.hpp"
-#include "../src/plant.hpp"
-#include "../src/farm_printer.hpp"
+#include "../src/farm_and_friends/plant.hpp"
+#include "../src/farm_and_friends/farm_printer.hpp"
 #include "../src/game_printer.hpp"
 TEST_CASE( "game printer constructs an expected base output" ) {
     inventory inventory_test;

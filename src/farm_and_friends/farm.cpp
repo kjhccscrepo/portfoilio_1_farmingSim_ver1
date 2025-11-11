@@ -1,4 +1,4 @@
-#include "../src/farm.hpp"
+#include "../farm_and_friends/farm.hpp"
 
 Farm::Farm(const int ini_rows, const int ini_columns, Player *player_ptr) {
     myPlayer = player_ptr;
@@ -60,4 +60,8 @@ void Farm::end_day() {
 void Farm::set_soil() {
     plots[myPlayer->getX()][myPlayer->getY()] = new Soil();
     plots[myPlayer->getX()][myPlayer->getY()]->end_day();
+}
+
+void Farm::water_plot() const {
+  plots[myPlayer->getX()][myPlayer->getY()]->water();
 }

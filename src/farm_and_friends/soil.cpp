@@ -1,4 +1,4 @@
-#include "soil.hpp"
+#include "../farm_and_friends/soil.hpp"
 std::string Soil::symbol() {
   return ".";
 }
@@ -13,4 +13,8 @@ void Soil::end_day() {
 
 int Soil::harvest() {
   return 1;
+}
+
+void Soil::water() {
+  // no-op
 }

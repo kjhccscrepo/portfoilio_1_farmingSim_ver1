@@ -1,4 +1,4 @@
-#include "plant.hpp"
+#include "../farm_and_friends/plant.hpp"
 
 
 
@@ -104,6 +104,17 @@ plant::plant(plant *plant_ptr) {
     this->my_produce = plant_ptr->my_produce;
     this->my_inventory = plant_ptr->my_inventory;
 }
+
+void plant::water() {
+    if (!hasWater) {
+        hasWater = true;
+    }
+}
+
 void plant::end_day() {
+    if (hasWater) {
+        age += 2;
+        hasWater = false;
+    }
     age += 1;
 }

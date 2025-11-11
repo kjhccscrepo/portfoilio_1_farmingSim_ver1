@@ -1,13 +1,14 @@
 #ifndef PLANT_H
 #define PLANT_H
 #include <vector>
-#include "inventory.hpp"
-#include "item.hpp"
-#include "plot.hpp"
+#include "../inventory.hpp"
+#include "../item.hpp"
+#include "../farm_and_friends/plot.hpp"
 
 // base class for a plant.
 class plant : public Plot {
 public:
+    bool hasWater = false;
     std::string name;
     int age{1};
     int mature_time{2};
@@ -40,5 +41,7 @@ public:
     void setWeightedOddsProduces(const std::vector<int> &set_weighted_odds_produce);
     plant() = default;
     explicit plant(plant *plant_ptr);
+
+    void water() override;
 };
 #endif

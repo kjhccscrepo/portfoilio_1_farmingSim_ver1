@@ -3,7 +3,7 @@
 #include <vector>
 #include <sstream>
 #include <algorithm>
-#include "../src/plant.hpp"
+#include "farm_and_friends/plant.hpp"
 #include "../src/item.hpp"
 
 class inventory {

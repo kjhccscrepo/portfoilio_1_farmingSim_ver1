@@ -3,7 +3,7 @@
 #include <iostream>
 #include <random>
 #include "src/ansi_clear.hpp"
-#include "src/soil.hpp"
+#include "src/farm_and_friends/soil.hpp"
 #include "src/item.hpp"
 #include "src/plants/carrot.hpp"
 #include "src/plants/melon.hpp"
@@ -11,7 +11,7 @@
 #include "src/items/seeds.hpp"
 #include "src/items/produce.hpp"
 #include "src/inventory.hpp"
-#include "src/farm.hpp"
+#include "src/farm_and_friends/farm.hpp"
 #include "src/farm_printer.hpp"
 #include "src/game_printer.hpp"
 #include "src/player.hpp"
@@ -123,6 +123,8 @@ int main() {
                 }
             }
 
+        } else if (player_input == "q") {
+            farm_obj.water_plot();
         }
     }
     return 0;

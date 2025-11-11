@@ -3,7 +3,7 @@
 #include <catch2/benchmark/catch_constructor.hpp>
 #include <catch2/generators/catch_generators_range.hpp>
 #include "../src/player.hpp"
-#include "../src/plant.hpp"
+#include "../src/farm_and_friends/plant.hpp"
 
 TEST_CASE( "it starts the player in 0, 0 by default" ) {
   Player test_player;
