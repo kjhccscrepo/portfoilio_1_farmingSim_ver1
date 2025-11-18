@@ -28,5 +28,7 @@ public:
     int getCost() override;
 
     void setCost(int &cost) override;
+
+    ~seeds() override;
 };
 #endif

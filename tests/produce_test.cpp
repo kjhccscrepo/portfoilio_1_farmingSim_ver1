@@ -1,10 +1,11 @@
+
 #include <catch2/catch_test_macros.hpp>
 #include <catch2/benchmark/catch_benchmark.hpp>
 #include <catch2/benchmark/catch_constructor.hpp>
 #include <catch2/generators/catch_generators_range.hpp>
-#include "../src/item.hpp"
 #include "../src/items/produce.hpp"
 #include "../src/plants/zucchini.hpp"
+
 TEST_CASE("a seed can be made and starts with 0 quantity") {
     Zucchini zucchini;
     produce produce_zucchini(&zucchini);
@@ -32,8 +33,7 @@ TEST_CASE("it's quantity can be modified") {
 
 TEST_CASE("it returns a pointer to its plant") {
     Zucchini zucchini;
-    Zucchini *z_ptr;
-    z_ptr = &zucchini;
+    Zucchini *z_ptr = &zucchini;
     produce produce_zucchini(&zucchini);
     REQUIRE(produce_zucchini.pointer() == z_ptr);
 }

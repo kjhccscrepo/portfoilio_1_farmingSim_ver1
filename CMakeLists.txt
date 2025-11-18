@@ -130,6 +130,13 @@ add_executable(player_test tests/player_test.cpp
         src/items/produce.cpp
         src/farm_and_friends/plant.cpp
 )
+add_executable(shop_test tests/shop_test.cpp
+        src/shop.cpp
+)
+add_executable(cupid_test tests/cupid_test.cpp
+        src/cupid.cpp
+        src/cupid.hpp
+)
 add_executable(main main.cpp
         src/cupid.cpp
 )
@@ -154,3 +161,6 @@ target_link_libraries(melon_test PRIVATE Catch2::Catch2WithMain)
 target_link_libraries(onion_test PRIVATE Catch2::Catch2WithMain)
 target_link_libraries(spinach_test PRIVATE Catch2::Catch2WithMain)
 target_link_libraries(zucchini_test PRIVATE Catch2::Catch2WithMain)
+
+target_link_libraries(cupid_test PRIVATE Catch2::Catch2WithMain)
+target_link_libraries(shop_test PRIVATE Catch2::Catch2WithMain)

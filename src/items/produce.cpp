@@ -38,3 +38,7 @@ int produce::getCost() {
 void produce::setCost(int &cost) {
     mySell = cost;
 }
+
+produce::~produce() {
+    delete this;
+}

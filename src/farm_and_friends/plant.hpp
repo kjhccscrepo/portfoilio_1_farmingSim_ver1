@@ -8,11 +8,11 @@
 // base class for a plant.
 class plant : public Plot {
 public:
-    int cost = 0;
+    int cost{};
     bool hasWater = false;
     std::string name;
-    int age{1};
-    int mature_time{2};
+    int age{};
+    int mature_time{};
     std::vector<std::string> myStates;
     std::vector<int> weightedStates;
     std::vector<int> drop_amount_seed;
@@ -22,6 +22,8 @@ public:
     item *my_seed{nullptr};
     item *my_produce{nullptr};
     inventory *my_inventory{nullptr};
+
+    plant() = default;
 
     ~plant() override = default;
 
@@ -65,9 +67,7 @@ public:
 
     void setCost(const int &myCost);
 
-    plant() = default;
-
-    explicit plant(plant *plant_ptr);
+    explicit plant(const plant *plant_ptr);
 
     void water() override;
 

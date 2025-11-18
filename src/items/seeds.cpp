@@ -38,3 +38,7 @@ int seeds::getCost() {
 void seeds::setCost(int &cost) {
     myCost = cost;
 }
+
+seeds::~seeds() {
+    delete this;
+}

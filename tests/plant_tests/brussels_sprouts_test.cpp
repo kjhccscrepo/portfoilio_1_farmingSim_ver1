@@ -5,7 +5,6 @@
 #include "../../src/plants/brussels_sprouts.hpp"
 #include "../../src/farm_and_friends/plant.hpp"
 
-
 TEST_CASE( "it returns a x as its when it is a seedling" ) {
     Brussels_Sprouts brussel;
     REQUIRE( brussel.symbol() == "x" );

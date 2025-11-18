@@ -6,18 +6,17 @@
 class Beet final : public plant {
 public:
     Beet() {
-        setName("Beet");
-        setAge(1);
-        setMatureTime(8);
-        setWeightedStates({2, 5});
-        setStates({"x", "b", "B"});
+        name = "Beet";
+        age = 1;
+        mature_time = 8;
+        weightedStates = {2, 5};
+        myStates = {"x", "b", "B"};
+        cost = 4;
 
         setSeedDrops({1, 2});
         setWeightedOddsSeeds({30, 20});
         setProduceDrops({1, 2});
         setWeightedOddsProduces({40, 30});
-
-        setCost(4);
     }
 };
 #endif

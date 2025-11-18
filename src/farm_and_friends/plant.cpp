@@ -16,7 +16,7 @@ std::string plant::symbol() {
 }
 
 int plant::seedDrops() const {
-    int rand_num = (rand() % (sum_odds(weighted_odds_seeds)));
+    const int rand_num = (rand() % (sum_odds(weighted_odds_seeds)));
     for (int i = 0; i < weighted_odds_seeds.size(); i++) {
         if (rand_num <= oddsOffset(i, weighted_odds_seeds)) {
             return drop_amount_seed[i];
@@ -26,7 +26,7 @@ int plant::seedDrops() const {
 }
 
 int plant::produceDrops() const {
-    int rand_num = (rand() % (sum_odds(weighted_odds_produce)));
+    const int rand_num = (rand() % (sum_odds(weighted_odds_produce)));
     for (int i = 0; i < weighted_odds_produce.size(); i++) {
         if (rand_num <= oddsOffset(i, weighted_odds_produce)) {
             return drop_amount_produce[i];
@@ -61,6 +61,7 @@ void plant::link_this_class(item *seed_pointer, item *produce_pointer, inventory
     my_inventory = inventory_pointer;
     my_seed->setCost(cost);
     my_produce->setCost(cost);
+    hasWater = false;
 }
 
 int plant::harvest() {
@@ -129,7 +130,7 @@ void plant::setCost(const int &myCost) {
     cost = myCost;
 }
 
-plant::plant(plant *plant_ptr) {
+plant::plant(const plant *plant_ptr) {
     this->setName(plant_ptr->name);
     this->setAge(plant_ptr->age);
     this->setMatureTime(plant_ptr->mature_time);
@@ -154,9 +155,9 @@ int plant::getCost() const {
 }
 
 void plant::end_day() {
+    age += 1;
     if (hasWater) {
         age += 2;
         hasWater = false;
     }
-    age += 1;
 }

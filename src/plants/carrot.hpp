@@ -6,16 +6,16 @@
 class Carrot final : public plant {
 public:
     Carrot() {
-        setName("Carrot");
-        setAge(1);
-        setMatureTime(3);
-        setStates({"x", "w", "W"});
+        name = "Carrot";
+        age = 1;
+        mature_time = 3;
+        myStates = {"x", "w", "W"};
+        cost = 3;
         setSeedDrops({1, 2, 3});
         setWeightedOddsSeeds({30, 40, 30});
         setProduceDrops({1, 2});
         setWeightedOddsProduces({90, 10});
 
-        setCost(3);
     }
 };
 #endif

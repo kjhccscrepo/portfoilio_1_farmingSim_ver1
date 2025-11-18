@@ -6,6 +6,8 @@ class plant;
 // abstract base class
 class item {
 public:
+    virtual ~item() = default;
+
     virtual std::string getMyName() = 0;
 
     virtual bool isSeed() = 0;
@@ -22,6 +24,5 @@ public:
 
     virtual void setCost(int &cost) = 0;
 
-    virtual ~item() = default;
 };
 #endif
