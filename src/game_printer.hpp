@@ -3,7 +3,6 @@
 #include <sstream>
 #include "farm_and_friends/farm_printer.hpp"
 #include "inventory.hpp"
-
 class GamePrinter {
     FarmPrinter *myFarmPrinted;
     inventory *myInventoryPointer;

@@ -9,7 +9,6 @@ public:
     virtual std::string myName() = 0;
     virtual void end_day() = 0;
     virtual int harvest() = 0;
-
     virtual void water() = 0;
 };
 #endif

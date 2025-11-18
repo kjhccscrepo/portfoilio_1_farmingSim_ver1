@@ -9,11 +9,12 @@ public:
         setName("Onion");
         setAge(1);
         setMatureTime(5);
-        setStates({"x","Y"});
+        setStates({"x","y","Y"});
         setSeedDrops({1, 2});
         setWeightedOddsSeeds({90, 10});
         setProduceDrops({2, 3, 4, 5, 6, 7});
         setWeightedOddsProduces({10, 20, 20, 15, 10, 5});
+        setCost(5);
     }
 };
 #endif

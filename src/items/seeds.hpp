@@ -2,11 +2,12 @@
 #define SEEDS_H
 #include "../item.hpp"
 #include "../farm_and_friends/plant.hpp"
-class seeds final : public item {
+class seeds : public item {
 private:
     plant *myPlant;
     std::string myName;
     int amount;
+    int myCost;
 public:
     explicit seeds(plant *plant_ptr);
     std::string getMyName() override;
@@ -15,5 +16,7 @@ public:
     bool isSeed() override;
     int quantity() override;
     plant *pointer() override;
+    int getCost() override;
+    void setCost(int &cost) override;
 };
 #endif

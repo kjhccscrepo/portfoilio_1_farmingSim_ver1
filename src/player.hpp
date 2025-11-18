@@ -11,15 +11,15 @@ private:
 public:
     explicit Player(const std::string &pAvatar);
     Player();
-    [[nodiscard]] int getX() const;
-    [[nodiscard]] int getY() const;
+    int getX() const;
+    int getY() const;
     void move_up();
     void move_down();
     void move_right();
     void move_left();
     void set_bounds(int xBound, int yBound);
     std::string getAvatar();
-    void setUpCheck();
+    void setUpCheck() const;
     void better_start_position();
     void change_avatar(char n);
 };

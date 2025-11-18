@@ -14,6 +14,8 @@ public:
         setWeightedOddsSeeds({10, 20, 30, 20, 10, 5});
         setProduceDrops({4, 5, 6, 7, 8, 9});
         setWeightedOddsProduces({10, 20, 20, 15, 10, 5});
+
+        setCost(2);
     }
 };
 #endif

@@ -13,15 +13,12 @@
 #include "../src/farm_and_friends/plant.hpp"
 #include "../src/farm_and_friends/farm_printer.hpp"
 
-const Carrot carrot;
-seeds seed_carrot(&carrot);
-produce produce_carrot(&carrot);
-
 TEST_CASE( "it pretty prints a single plot of land" ) {
-  Player p;
-  Farm farm(1, 1, &p);
-  FarmPrinter printer(&farm);
-  std::stringstream expected;
+    Player p;
+    Farm farm(1, 1);
+    farm.link_Player(&p);
+    FarmPrinter printer(&farm);
+    std::stringstream expected;
   expected  << "/ / / \n"
             << "/ P / \n"
             << "/ / / \n";
@@ -30,7 +27,8 @@ TEST_CASE( "it pretty prints a single plot of land" ) {
 
 TEST_CASE( "it pretty prints a 1x2 farm" ) {
   Player player;
-  Farm farm(1, 2, &player);
+  Farm farm(1, 2);
+    farm.link_Player(&player);
   FarmPrinter printer(&farm);
   std::stringstream expected;
   expected  << "/ / / \n"
@@ -41,7 +39,8 @@ TEST_CASE( "it pretty prints a 1x2 farm" ) {
 }
 TEST_CASE( "it pretty prints a 2x1 farm" ) {
   Player player;
-  Farm farm(2, 1, &player);
+  Farm farm(2, 1);
+    farm.link_Player(&player);
   FarmPrinter printer(&farm);
   std::stringstream expected;
   expected  << "/ / / / \n"
@@ -51,7 +50,8 @@ TEST_CASE( "it pretty prints a 2x1 farm" ) {
 }
 TEST_CASE( "it pretty prints a 2x2 farm" ) {
     Player player;
-    Farm farm(2, 2, &player);
+    Farm farm(2, 2);
+    farm.link_Player(&player);
     FarmPrinter printer(&farm);
     std::stringstream expected;
     expected  << "/ / / / \n"
@@ -62,7 +62,8 @@ TEST_CASE( "it pretty prints a 2x2 farm" ) {
 }
 TEST_CASE( "player moves" ) {
     Player player;
-    Farm farm(3, 3, &player);
+    Farm farm(3, 3);
+    farm.link_Player(&player);
     player.set_bounds(3, 3);
     FarmPrinter printer(&farm);
     std::stringstream expected;
@@ -128,7 +129,8 @@ TEST_CASE( "player moves" ) {
 TEST_CASE( "player plants a carrot" ) {
     Player player;
     inventory inventory;
-    Farm farm(3, 3, &player);
+    Farm farm(3, 3);
+    farm.link_Player(&player);
     player.set_bounds(3, 3);
     FarmPrinter printer(&farm);
     Carrot carrot;
@@ -158,7 +160,8 @@ TEST_CASE( "player plants a carrot" ) {
 TEST_CASE( "player grows a carrot" ) {
     Player player;
     inventory inventory;
-    Farm farm(3, 3, &player);
+    Farm farm(3, 3);
+    farm.link_Player(&player);
     player.set_bounds(3, 3);
     FarmPrinter printer(&farm);
     Carrot carrot;
@@ -200,7 +203,8 @@ TEST_CASE( "player grows a carrot" ) {
 TEST_CASE( "player harvests a melon" ) {
     Player player;
     inventory inventory;
-    Farm farm(3, 3, &player);
+    Farm farm(3, 3);
+    farm.link_Player(&player);
     player.set_bounds(3, 3);
     FarmPrinter printer(&farm);
     Melon melon;

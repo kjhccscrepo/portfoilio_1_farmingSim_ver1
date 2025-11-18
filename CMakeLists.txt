@@ -26,14 +26,12 @@ add_executable(beet_test tests/plant_tests/beet_test.cpp
         src/farm_and_friends/plant.cpp
         src/farm_and_friends/plot.hpp
         src/inventory.cpp
-        src/plants/beet.hpp
 )
 add_executable(brussels_sprouts_test tests/plant_tests/brussels_sprouts_test.cpp
         src/plants/brussels_sprouts.hpp
         src/farm_and_friends/plant.cpp
         src/farm_and_friends/plot.hpp
         src/inventory.cpp
-        src/plants/brussels_sprouts.hpp
 )
 add_executable(carrot_test tests/plant_tests/carrot_test.cpp
         src/plants/carrot.hpp

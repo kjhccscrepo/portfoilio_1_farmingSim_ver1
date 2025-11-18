@@ -1,6 +1,7 @@
 #include "seeds.hpp"
 seeds::seeds(plant *plant_ptr) {
     myPlant = plant_ptr;
+    myCost = 0;
     myName = (myPlant->myName() + " seeds");
     amount = 0;
 }
@@ -21,4 +22,11 @@ int seeds::quantity() {
 }
 plant *seeds::pointer() {
     return myPlant;
+}
+
+int seeds::getCost() {
+    return myCost;
+}
+void seeds::setCost(int &cost) {
+    myCost = cost;
 }

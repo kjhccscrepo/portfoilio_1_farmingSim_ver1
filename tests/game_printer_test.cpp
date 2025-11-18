@@ -5,8 +5,8 @@
 #include "../src/player.hpp"
 #include "../src/inventory.hpp"
 #include "../src/farm_and_friends/farm.hpp"
-#include "../src/items/seeds.hpp"
 #include "../src/item.hpp"
+#include "../src/items/seeds.hpp"
 #include "../src/items/produce.hpp"
 #include "../src/plants/carrot.hpp"
 #include "../src/plants/melon.hpp"
@@ -23,7 +23,8 @@ TEST_CASE( "game printer constructs an expected base output" ) {
     Player p;
     p.set_bounds(5, 5);
     p.better_start_position();
-    Farm farm(5, 5, &p);
+    Farm farm(5, 5);
+    farm.link_Player(&p);
     FarmPrinter printer_farm(&farm);
     GamePrinter printer(&printer_farm, &inventory_test);
     std::stringstream expected;
@@ -46,7 +47,8 @@ TEST_CASE( "game printer produces the legend." ) {
     Player p;
     p.set_bounds(5, 5);
     p.better_start_position();
-    Farm farm(5, 5, &p);
+    Farm farm(5, 5);
+    farm.link_Player(&p);
     FarmPrinter printer_farm(&farm);
     GamePrinter printer(&printer_farm, &inventory_test);
     std::stringstream expected;
@@ -82,7 +84,8 @@ TEST_CASE( "game printer produces the inventory." ) {
     Player p;
     p.set_bounds(5, 5);
     p.better_start_position();
-    Farm farm(5, 5, &p);
+    Farm farm(5, 5);
+    farm.link_Player(&p);
     FarmPrinter printer_farm(&farm);
     GamePrinter printer(&printer_farm, &inventory_test);
     std::stringstream expected;

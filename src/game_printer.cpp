@@ -18,6 +18,8 @@ void GamePrinter::generate_legend() {
     legend_print << "o:\tchange selected seed\n";
     legend_print << "h:\tharvest grown crop\n";
     legend_print << "e:\tend the day\n";
+    legend_print << "q:\twater the selected plot\n";
+    legend_print << "m:\tgo to the shop\n";
     legend_print << "q:\tquit the game\n";
     legend_print << "r:\treturn to the game\n";
     legend = legend_print.str();
@@ -65,6 +67,11 @@ std::string GamePrinter::prettyPrint_Game() {
             game_stream << "\t\t";
             game_stream << getStreamLine(info, i);
             i++;
+        }
+        game_stream << "\n";
+        game_stream << "Watering Can Amount:\t ";
+        for (int w = 0; w < myInventoryPointer->getCurrentWater(); w++) {
+            game_stream << "|";
         }
         game_stream << "\n";
     }

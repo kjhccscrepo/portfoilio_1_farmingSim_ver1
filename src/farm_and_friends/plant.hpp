@@ -8,11 +8,13 @@
 // base class for a plant.
 class plant : public Plot {
 public:
+    int cost = 0;
     bool hasWater = false;
     std::string name;
     int age{1};
     int mature_time{2};
     std::vector<std::string> myStates;
+    std::vector<int> weightedStates;
     std::vector<int> drop_amount_seed;
     std::vector<int> weighted_odds_seeds;
     std::vector<int> drop_amount_produce;
@@ -21,11 +23,11 @@ public:
     item *my_produce{nullptr};
     inventory *my_inventory{nullptr};
     ~plant() override = default;
-    [[nodiscard]] bool isGrown() const;
+    bool isGrown() const;
     std::string symbol() override;
     void end_day() override;
-    [[nodiscard]] int seedDrops() const;
-    [[nodiscard]] int produceDrops() const;
+    int seedDrops() const;
+    int produceDrops() const;
     std::string myName() override;
     static int sum_odds(const std::vector<int> &odds);
     static int oddsOffset(const int &iteration, const std::vector<int> &odds);
@@ -35,13 +37,16 @@ public:
     void setAge(const int &set_age);
     void setMatureTime(const int &set_mature_time);
     void setStates(const std::vector<std::string> &set_states);
+    void setWeightedStates(const std::vector<int> &set_weighted_states);
     void setSeedDrops(const std::vector<int> &set_drop_amount_seed);
     void setWeightedOddsSeeds(const std::vector<int> &set_weighted_odds_seeds);
     void setProduceDrops(const std::vector<int> &set_drop_amount_produce);
     void setWeightedOddsProduces(const std::vector<int> &set_weighted_odds_produce);
+    void setCost(const int &myCost);
     plant() = default;
     explicit plant(plant *plant_ptr);
-
     void water() override;
+
+    int getCost() const;
 };
 #endif

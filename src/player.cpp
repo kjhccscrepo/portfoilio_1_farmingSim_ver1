@@ -51,7 +51,7 @@ void Player::set_bounds(int xBound, int yBound) {
 std::string Player::getAvatar() {
     return this->myAvatar;
 }
-void Player::setUpCheck() {
+void Player::setUpCheck() const {
     if (maxX == 0 || maxY == 0) {
     throw "player has unset max";
     }

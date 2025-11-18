@@ -1,7 +1,7 @@
 #include "../farm_and_friends/farm.hpp"
 
-Farm::Farm(const int ini_rows, const int ini_columns, Player *player_ptr) {
-    myPlayer = player_ptr;
+Farm::Farm(const int ini_rows, const int ini_columns) {
+    myPlayer = nullptr;
     rows = ini_rows;
     columns = ini_columns;
     for(int i = 0; i < ini_rows; i++) {
@@ -15,11 +15,22 @@ Farm::Farm(const int ini_rows, const int ini_columns, Player *player_ptr) {
   dayCounter = 1;
 }
 
-int Farm::harvest_val() {
+void Farm::link_Player(Player *player_ptr) {
+  myPlayer = player_ptr;
+}
+
+int Farm::harvest_val() const {
     if (plots[myPlayer->getX()][myPlayer->getY()] != nullptr) {
       return plots[myPlayer->getX()][myPlayer->getY()]->harvest();
     }
   return 0;
+}
+
+int Farm::harvest_val(const int x, const int y) const {
+    if (plots[x][y] != nullptr) {
+      return plots[x][y]->harvest();
+    }
+    return 0;
 }
 
 int Farm::row_capacity() const {
@@ -30,7 +41,7 @@ int Farm::column_capacity() const {
   return columns;
 }
 
-std::string Farm::get_symbol(const int x, const int y) {
+std::string Farm::get_symbol(const int x, const int y) const {
   if(myPlayer->getX() == x && myPlayer->getY() == y) {
     return myPlayer->getAvatar();
   } else {

@@ -13,6 +13,8 @@ public:
         setWeightedOddsSeeds({30, 40, 30});
         setProduceDrops({1, 2});
         setWeightedOddsProduces({90, 10});
+
+        setCost(3);
     }
 };
 #endif

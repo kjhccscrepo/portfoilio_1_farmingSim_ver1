@@ -15,42 +15,49 @@
 #include "../src/items/produce.hpp"
 TEST_CASE( "it can be initialized with a single plot" ) {
   Player player;
-  Farm farm(1, 1, &player);
+  Farm farm(1, 1);
+  farm.link_Player(&player);
   REQUIRE( farm.row_capacity() == 1 );
   REQUIRE( farm.column_capacity() == 1 );
 }
 TEST_CASE( "it can be initialized as a 1x2 farm" ) {
   Player player;
-  Farm farm(1, 2, &player);
+  Farm farm(1, 2);
+  farm.link_Player(&player);
   REQUIRE( farm.row_capacity() == 1 );
   REQUIRE( farm.column_capacity() == 2 );
 }
 TEST_CASE( "it can be initialized as a 2x1 farm" ) {
   Player player;
-  Farm farm(2, 1, &player);
+  Farm farm(2, 1);
+  farm.link_Player(&player);
   REQUIRE( farm.row_capacity() == 2 );
   REQUIRE( farm.column_capacity() == 1 );
 }
 TEST_CASE( "it returns the symbol for a single soil plot" ) {
   Player player;
-  Farm farm(1, 1, &player);
+  Farm farm(1, 1);
+  farm.link_Player(&player);
   REQUIRE( farm.get_symbol(0, 0) == "P" );
 }
 TEST_CASE( "it returns the symbols for a 1x2 farm" ) {
   Player player;
-  Farm farm(1, 2, &player);
+  Farm farm(1, 2);
+  farm.link_Player(&player);
   REQUIRE( farm.get_symbol(0, 0) == "P" );
   REQUIRE( farm.get_symbol(0, 1) == "." );
 }
 TEST_CASE( "it returns the symbols for a 2x1 farm" ) {
   Player player;
-  Farm farm(2, 1, &player);
+  Farm farm(2, 1);
+  farm.link_Player(&player);
   REQUIRE( farm.get_symbol(0, 0) == "P" );
   REQUIRE( farm.get_symbol(1, 0) == "." );
 }
 TEST_CASE( "it allows us to plant a carrot" ) {
   Player player;
-  Farm farm(1, 2, &player);
+  Farm farm(1, 2);
+  farm.link_Player(&player);
   Carrot carrot;
   farm.plant(0, 1, &carrot);
   REQUIRE( farm.get_symbol(0, 1) == "v" );
@@ -62,7 +69,8 @@ TEST_CASE( "we can grow, then harvest a melon, and add it to our inventory" ) {
   seeds seed_melon(&melon);
   produce produce_melon(&melon);
   melon.link_this_class(&seed_melon, &produce_melon, &inventory_test);
-  Farm farm(3, 3, &player);
+  Farm farm(3, 3);
+  farm.link_Player(&player);
   player.set_bounds(3, 3);
   farm.plant(2, 2, &melon);
   REQUIRE( farm.get_symbol(2, 2) == "p" );

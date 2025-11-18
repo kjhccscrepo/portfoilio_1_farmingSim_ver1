@@ -8,6 +8,7 @@
 #include "../src/items/seeds.hpp"
 #include "../src/farm_and_friends/plant.hpp"
 #include "../src/plants/carrot.hpp"
+
 TEST_CASE( "an inventory can have an item put in it" ) {
     inventory inventory_test;
     REQUIRE( inventory_test.how_many_types_of_things() == 0);
