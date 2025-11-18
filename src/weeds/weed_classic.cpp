@@ -1,4 +1,6 @@
 #include "weed_classic.hpp"
+#include "../plot.hpp"
+
 
 weed_classic::weed_classic(Farm *ptr, int x, int y) {
     farm_ptr = ptr;
@@ -63,4 +65,12 @@ void weed_classic::end_day() {
 int weed_classic::harvest() {
     delete this;
     return -1;
+}
+
+void weed_classic::water() {
+    // no - op
+}
+
+weed_classic::~weed_classic() {
+
 }

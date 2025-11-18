@@ -1,9 +1,25 @@
 #include "cupid.hpp"
+#include "game_printer.hpp"
+#include "inventory.hpp"
+#include "player.hpp"
+#include "shop.hpp"
+#include "plant.hpp"
+#include "items/seeds.hpp"
+#include "plants/beet.hpp"
+#include "plants/brussels_sprouts.hpp"
+#include "plants/carrot.hpp"
+#include "plants/lettuce.hpp"
+#include "plants/melon.hpp"
+#include "plants/onion.hpp"
+#include "plants/spinach.hpp"
+#include "plants/zucchini.hpp"
+#include "weeds/weed_classic.hpp"
+
 
 void cupid::try_plant() {
     if (playerInventory.is_first_item_plantable()) {
         // a seed has been selected and verified!
-        plant *new_plant = new plant(playerInventory.pointer_to_plant());
+        auto *new_plant = new plant(playerInventory.pointer_to_plant());
         farm.plant(player.getX(), player.getY(), new_plant);
         playerInventory.remove_1_seed();
     }
@@ -131,6 +147,8 @@ cupid::cupid() : farm(9, 11) {
 
 void cupid::runGame() {
     //plants
+
+
     Carrot carrot;
     Melon melon;
     Onion onion;

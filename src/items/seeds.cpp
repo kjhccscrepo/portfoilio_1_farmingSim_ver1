@@ -1,4 +1,5 @@
 #include "seeds.hpp"
+#include "../plant.hpp"
 
 seeds::seeds(plant *plant_ptr) {
     myPlant = plant_ptr;

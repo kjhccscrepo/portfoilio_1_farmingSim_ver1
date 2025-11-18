@@ -3,7 +3,7 @@
 #include <string>
 #include "plot.hpp"
 
-class Soil : public Plot {
+class Soil final : public Plot {
 public:
     std::string symbol() override;
 

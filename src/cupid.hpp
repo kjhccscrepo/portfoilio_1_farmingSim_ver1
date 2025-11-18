@@ -8,18 +8,9 @@
 #include "inventory.hpp"
 #include "player.hpp"
 #include "shop.hpp"
-#include "soil.hpp"
-#include "items/produce.hpp"
+#include "../src/soil.hpp"
 #include "items/seeds.hpp"
 #include "plants/beet.hpp"
-#include "plants/brussels_sprouts.hpp"
-#include "plants/carrot.hpp"
-#include "plants/lettuce.hpp"
-#include "plants/melon.hpp"
-#include "plants/onion.hpp"
-#include "plants/spinach.hpp"
-#include "plants/zucchini.hpp"
-#include "weeds/weed_classic.hpp"
 
 class cupid {
 private:

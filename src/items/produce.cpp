@@ -1,7 +1,8 @@
 #include "produce.hpp"
+#include "../plant.hpp"
 
-produce::produce(plant *plot_ptr) {
-    myPlant = plot_ptr;
+produce::produce(plant *plant_ptr) {
+    myPlant = plant_ptr;
     mySell = 0;
     myName = (myPlant->myName() + "(s)");
     amount = 0;

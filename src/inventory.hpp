@@ -32,7 +32,7 @@ public:
 
     void move_item_to_front(const int &x);
 
-    bool is_first_item_plantable() const;
+    [[nodiscard]] bool is_first_item_plantable() const;
 
     std::string first_name() const;
 

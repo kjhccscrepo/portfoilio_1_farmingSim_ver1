@@ -16,7 +16,7 @@ private:
     std::vector<std::vector<Plot *> > plots;
 
 public:
-    Farm(int ini_rows, int ini_columns);
+    explicit Farm(int ini_rows, int ini_columns);
 
     void link_Player(Player *player_ptr);
 

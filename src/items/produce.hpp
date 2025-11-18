@@ -1,7 +1,7 @@
 #ifndef PRODUCE_H
 #define PRODUCE_H
 #include "../item.hpp"
-#include "../plant.hpp"
+
 
 class produce : public item {
 private:
@@ -12,9 +12,7 @@ private:
 
 public:
     explicit produce(plant *plant_ptr);
-
     std::string getMyName() override;
-
     void increase_quantity() override;
 
     void decrease_quantity() override;

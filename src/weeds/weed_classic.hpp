@@ -3,7 +3,7 @@
 #include <random>
 #include <string>
 #include "../farm.hpp"
-#include "../plot.hpp"
+
 #include "../weed.hpp"
 
 class weed_classic final : public Weed {
@@ -24,5 +24,9 @@ public:
     void end_day() override;
 
     int harvest() override;
+
+    void water() override;
+
+    ~weed_classic() override;
 };
 #endif

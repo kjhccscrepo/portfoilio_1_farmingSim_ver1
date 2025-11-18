@@ -1,8 +1,8 @@
 #include "../src/inventory.hpp"
-
-#include "../src/plant.hpp"
-
 #include "../src/item.hpp"
+#include "../src/plant.hpp"
+#include "../src/plot.hpp"
+#include "../src/soil.hpp"
 #include "../src/items/produce.hpp"
 #include "../src/items/seeds.hpp"
 #include "../src/plants/carrot.hpp"
