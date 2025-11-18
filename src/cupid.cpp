@@ -83,12 +83,12 @@ void cupid::weed_time() {
         const int x = rand() % (farm.row_capacity() - 1);
         const int y = rand() % (farm.column_capacity() - 1);
         if (farm.get_symbol(x, y) == "~") {
-            weed_classic *weed_ptr = new weed_classic(&farm, x, y);
+            auto *weed_ptr = new weed_classic(&farm, x, y);
             farm.plant(x, y, weed_ptr);
         } else if (farm.get_symbol(x, y) != "*") {
             const int o = (rand() % 9) + 1;
             if (o > 6) {
-                weed_classic *weed_ptr = new weed_classic(&farm, x, y);
+                auto *weed_ptr = new weed_classic(&farm, x, y);
                 farm.plant(x, y, weed_ptr);
             }
         }

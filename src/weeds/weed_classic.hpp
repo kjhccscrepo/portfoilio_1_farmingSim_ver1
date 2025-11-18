@@ -1,11 +1,10 @@
 #ifndef WEED_CLASSIC_H
 #define WEED_CLASSIC_H
-#include <string>
 #include <random>
-#include <stdexcept>
+#include <string>
+#include "../farm.hpp"
 #include "../plot.hpp"
 #include "../weed.hpp"
-#include "../farm.hpp"
 
 class weed_classic final : public Weed {
 private:

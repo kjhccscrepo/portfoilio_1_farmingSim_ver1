@@ -1,8 +1,9 @@
+#include "../src/items/seeds.hpp"
 #include <catch2/catch_test_macros.hpp>
 #include <catch2/benchmark/catch_benchmark.hpp>
 #include <catch2/benchmark/catch_constructor.hpp>
 #include <catch2/generators/catch_generators_range.hpp>
-#include "../src/items/seeds.hpp"
+
 #include "../src/plants/zucchini.hpp"
 TEST_CASE( "a seed can be made and starts with 0 quantity" ) {
     Zucchini zucchini;

@@ -1,7 +1,7 @@
 #ifndef SEEDS_H
 #define SEEDS_H
 #include "../item.hpp"
-#include "../farm_and_friends/plant.hpp"
+#include "../plant.hpp"
 
 class seeds : public item {
 private:

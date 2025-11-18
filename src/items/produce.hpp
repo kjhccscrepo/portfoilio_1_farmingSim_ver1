@@ -1,7 +1,7 @@
 #ifndef PRODUCE_H
 #define PRODUCE_H
 #include "../item.hpp"
-#include "../farm_and_friends/plant.hpp"
+#include "../plant.hpp"
 
 class produce : public item {
 private:

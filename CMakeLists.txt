@@ -15,135 +15,129 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(Catch2)
 
+
 add_executable(soil_test tests/soil_test.cpp
-        src/farm_and_friends/soil.cpp
+        src/soil.hpp
 )
 
 add_executable(beet_test tests/plant_tests/beet_test.cpp
         src/plants/beet.hpp
-        src/farm_and_friends/plant.cpp
-        src/farm_and_friends/plot.hpp
+        src/plot.hpp
+        src/plant.cpp
         src/inventory.cpp
 )
 add_executable(brussels_sprouts_test tests/plant_tests/brussels_sprouts_test.cpp
         src/plants/brussels_sprouts.hpp
-        src/farm_and_friends/plant.cpp
-        src/farm_and_friends/plot.hpp
+        src/plot.hpp
+        src/plant.cpp
         src/inventory.cpp
 )
 add_executable(carrot_test tests/plant_tests/carrot_test.cpp
         src/plants/carrot.hpp
-        src/farm_and_friends/plant.cpp
-        src/farm_and_friends/plot.hpp
+        src/plot.hpp
+        src/plant.cpp
         src/inventory.cpp
 )
 add_executable(lettuce_test tests/plant_tests/lettuce_test.cpp
         src/plants/lettuce.hpp
-        src/farm_and_friends/plant.cpp
-        src/farm_and_friends/plot.hpp
+        src/plot.hpp
+        src/plant.cpp
         src/inventory.cpp
 )
 add_executable(melon_test tests/plant_tests/melon_test.cpp
         src/plants/melon.hpp
-        src/farm_and_friends/plant.cpp
-        src/farm_and_friends/plot.hpp
+        src/plot.hpp
+        src/plant.cpp
         src/inventory.cpp
 )
 add_executable(onion_test tests/plant_tests/onion_test.cpp
         src/plants/onion.hpp
-        src/farm_and_friends/plant.cpp
-        src/farm_and_friends/plot.hpp
+        src/plot.hpp
+        src/plant.cpp
         src/inventory.cpp
 )
 add_executable(spinach_test tests/plant_tests/spinach_test.cpp
         src/plants/spinach.hpp
-        src/farm_and_friends/plant.cpp
-        src/farm_and_friends/plot.hpp
+        src/plot.hpp
+        src/plant.cpp
         src/inventory.cpp
 )
 add_executable(zucchini_test tests/plant_tests/zucchini_test.cpp
         src/plants/zucchini.hpp
-        src/farm_and_friends/plant.cpp
-        src/farm_and_friends/plot.hpp
+        src/plot.hpp
+        src/plant.cpp
         src/inventory.cpp
 )
 add_executable(inventory_test tests/inventory_test.cpp
+        src/inventory.hpp
+        src/plot.hpp
+        src/plant.cpp
         src/inventory.cpp
-        src/items/produce.cpp
-        src/items/seeds.cpp
-        src/farm_and_friends/plant.cpp
 )
 add_executable(farm_test tests/farm_test.cpp
-        src/farm_and_friends/farm.cpp
+        src/farm.cpp
         src/player.cpp
         src/item.hpp
         src/items/seeds.cpp
         src/items/produce.cpp
-        src/farm_and_friends/plant.cpp
+        src/plant.cpp
         src/inventory.cpp
 )
 add_executable(farm_printer_test tests/farm_printer_test.cpp
-        src/farm_and_friends/farm_printer.cpp
-        src/player.cpp
-        src/inventory.cpp
-        src/farm_and_friends/farm.cpp
-        src/farm_and_friends/soil.cpp
-        src/farm_and_friends/plot.hpp
-        src/farm_and_friends/plant.cpp
-        src/plants/carrot.hpp
+        src/farm_printer.hpp
+        src/player.hpp
+        src/inventory.hpp
         src/item.hpp
-        src/items/seeds.cpp
-        src/items/produce.cpp
+        src/items/produce.hpp
+        src/items/seeds.hpp
+        src/farm.hpp
 )
 add_executable(game_printer_test tests/game_printer_test.cpp
-        src/game_printer.cpp
-        src/farm_and_friends/farm_printer.cpp
-        src/player.cpp
-        src/inventory.cpp
-        src/farm_and_friends/farm.cpp
-        src/farm_and_friends/soil.cpp
-        src/farm_and_friends/plot.hpp
-        src/farm_and_friends/plant.cpp
+        src/game_printer.hpp
+        src/farm_printer.hpp
+        src/player.hpp
+        src/inventory.hpp
+        src/farm.hpp
+        src/soil.hpp
+        src/plot.hpp
+        src/plant.hpp
         src/plants/carrot.hpp
         src/item.hpp
-        src/items/seeds.cpp
-        src/items/produce.cpp
+        src/items/seeds.hpp
+        src/items/produce.hpp
 )
 
 add_executable(seeds_test tests/seeds_test.cpp
-        src/items/seeds.cpp
+        src/items/seeds.hpp
         src/item.hpp
-        src/farm_and_friends/plant.cpp
-        src/inventory.cpp
+        src/plant.hpp
+        src/inventory.hpp
 )
 add_executable(produce_test tests/produce_test.cpp
-        src/items/produce.cpp
+        src/items/produce.hpp
         src/item.hpp
-        src/farm_and_friends/plant.cpp
-        src/inventory.cpp
+        src/plant.hpp
+        src/inventory.hpp
 )
 add_executable(player_test tests/player_test.cpp
-        src/player.cpp
-        src/inventory.cpp
+        src/player.hpp
+        src/inventory.hpp
         src/item.hpp
-        src/items/seeds.cpp
-        src/items/produce.cpp
-        src/farm_and_friends/plant.cpp
+        src/items/seeds.hpp
+        src/items/produce.hpp
+        src/plant.hpp
 )
 add_executable(shop_test tests/shop_test.cpp
-        src/shop.cpp
-)
+        src/shop.hpp )
+
+
 add_executable(cupid_test tests/cupid_test.cpp
-        src/cupid.cpp
-        src/cupid.hpp
-)
+        src/cupid.hpp)
 add_executable(main main.cpp
-        src/cupid.cpp
-)
+    src/cupid.hpp)
 
 
 target_link_libraries(farm_printer_test PRIVATE Catch2::Catch2WithMain)
-
 target_link_libraries(game_printer_test PRIVATE Catch2::Catch2WithMain)
 
 target_link_libraries(inventory_test PRIVATE Catch2::Catch2WithMain)

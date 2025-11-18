@@ -1,10 +1,11 @@
 #ifndef INVENTORY_H
 #define INVENTORY_H
-#include <vector>
-#include <sstream>
+
 #include <algorithm>
-#include "farm_and_friends/plant.hpp"
-#include "../src/item.hpp"
+#include <sstream>
+#include <vector>
+#include "item.hpp"
+#include "plant.hpp"
 
 class inventory {
     std::vector<item *> myInventory;

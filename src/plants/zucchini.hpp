@@ -2,7 +2,7 @@
 #define ZUCCHINI_H
 #include <string>
 #include <vector>
-#include "../farm_and_friends/plant.hpp"
+#include "../plant.hpp"
 
 class Zucchini final : public plant {
 public:

@@ -1,7 +1,7 @@
 #ifndef BRUSSELS_SPROUTS_H
 #define BRUSSELS_SPROUTS_H
 #include <vector>
-#include "../farm_and_friends/plant.hpp"
+#include "../plant.hpp"
 
 class Brussels_Sprouts final : public plant {
 public:

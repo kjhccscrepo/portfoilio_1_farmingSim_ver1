@@ -1,7 +1,7 @@
 #ifndef CARROT_H
 #define CARROT_H
 #include <vector>
-#include "../farm_and_friends/plant.hpp"
+#include "../plant.hpp"
 
 class Carrot final : public plant {
 public:

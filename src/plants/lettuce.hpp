@@ -1,7 +1,7 @@
 #ifndef LETTUCE_H
 #define LETTUCE_H
 #include <vector>
-#include "../farm_and_friends/plant.hpp"
+#include "../plant.hpp"
 
 class Lettuce final : public plant {
 public:

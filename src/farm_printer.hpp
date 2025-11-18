@@ -1,7 +1,7 @@
 #ifndef FARM_PRINTER_H
 #define FARM_PRINTER_H
-#include <string>
 #include <sstream>
+#include <string>
 #include "farm.hpp"
 
 

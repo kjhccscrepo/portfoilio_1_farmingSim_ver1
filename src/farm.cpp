@@ -1,4 +1,4 @@
-#include "../farm_and_friends/farm.hpp"
+#include "farm.hpp"
 
 Farm::Farm(const int ini_rows, const int ini_columns) {
     myPlayer = nullptr;

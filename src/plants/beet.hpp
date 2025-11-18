@@ -1,7 +1,7 @@
 #ifndef BEET_H
 #define BEET_H
 #include <vector>
-#include "../farm_and_friends/plant.hpp"
+#include "../plant.hpp"
 
 class Beet final : public plant {
 public:

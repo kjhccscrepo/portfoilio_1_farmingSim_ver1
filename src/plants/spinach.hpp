@@ -1,7 +1,7 @@
 #ifndef SPINACH_H
 #define SPINACH_H
 #include <vector>
-#include "../farm_and_friends/plant.hpp"
+#include "../plant.hpp"
 
 class Spinach final : public plant {
 public:

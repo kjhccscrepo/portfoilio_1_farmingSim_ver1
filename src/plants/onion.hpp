@@ -2,7 +2,7 @@
 #define ONION_H
 #include <string>
 #include <vector>
-#include "../farm_and_friends/plant.hpp"
+#include "../plant.hpp"
 
 class Onion final : public plant {
 public:

@@ -2,9 +2,13 @@
 #define CUPID_H
 // this class handles setup for the game,
 // and it pairs the classes.
-
+#include "ansi_clear.hpp"
+#include "farm.hpp"
+#include "game_printer.hpp"
 #include "inventory.hpp"
-#include "farm_and_friends/soil.hpp"
+#include "player.hpp"
+#include "shop.hpp"
+#include "soil.hpp"
 #include "items/produce.hpp"
 #include "items/seeds.hpp"
 #include "plants/beet.hpp"
@@ -15,12 +19,7 @@
 #include "plants/onion.hpp"
 #include "plants/spinach.hpp"
 #include "plants/zucchini.hpp"
-#include "game_printer.hpp"
-#include "player.hpp"
-#include "farm_and_friends/farm.hpp"
-#include "ansi_clear.hpp"
-#include "shop.hpp"
-#include "farm_and_friends/weeds/weed_classic.hpp"
+#include "weeds/weed_classic.hpp"
 
 class cupid {
 private:
@@ -48,7 +47,7 @@ private:
     void water();
 
 public:
-    explicit cupid();
+    cupid();
 
     void runGame();
 };

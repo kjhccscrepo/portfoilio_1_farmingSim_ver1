@@ -16,7 +16,7 @@ std::string weed_classic::myName() {
 
 void weed_classic::end_day() {
     if (farm_ptr == nullptr) {
-        throw std::invalid_argument("farm_ptr is null");
+        throw ("farm_ptr is null");
     }
     // check down
     if (w_Y - 1 != 0) {

@@ -1,10 +1,11 @@
-#ifndef PLANT_H
-#define PLANT_H
-#include <vector>
-#include "../inventory.hpp"
-#include "../item.hpp"
-#include "../farm_and_friends/plot.hpp"
 
+#ifndef PLANTS_H
+#define PLANTS_H
+
+#include <vector>
+#include "inventory.hpp"
+#include "item.hpp"
+#include "plot.hpp"
 // base class for a plant.
 class plant : public Plot {
 public:

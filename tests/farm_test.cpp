@@ -1,13 +1,13 @@
+#include "../src/farm.hpp"
 #include <catch2/catch_test_macros.hpp>
 #include <catch2/benchmark/catch_benchmark.hpp>
 #include <catch2/benchmark/catch_constructor.hpp>
 #include <catch2/generators/catch_generators_range.hpp>
-#include "../src/farm_and_friends/farm.hpp"
 #include "../src/inventory.hpp"
 #include "../src/item.hpp"
+#include "../src/plant.hpp"
 #include "../src/player.hpp"
-#include "../src/farm_and_friends/plant.hpp"
-#include "../src/farm_and_friends/plot.hpp"
+#include "../src/plot.hpp"
 #include "../src/items/produce.hpp"
 #include "../src/items/seeds.hpp"
 #include "../src/plants/carrot.hpp"

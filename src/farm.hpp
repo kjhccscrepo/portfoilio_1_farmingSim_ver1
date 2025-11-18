@@ -2,9 +2,10 @@
 #define FARM_H
 #include <string>
 #include <vector>
+#include "player.hpp"
 #include "plot.hpp"
-#include "../player.hpp"
-#include "../farm_and_friends/soil.hpp"
+#include "soil.hpp"
+class player;
 
 class Farm {
 private:

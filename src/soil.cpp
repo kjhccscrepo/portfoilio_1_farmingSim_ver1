@@ -1,4 +1,4 @@
-#include "../farm_and_friends/soil.hpp"
+#include "soil.hpp"
 
 std::string Soil::symbol() {
   return ".";

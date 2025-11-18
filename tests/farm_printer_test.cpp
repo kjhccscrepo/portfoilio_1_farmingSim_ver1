@@ -1,17 +1,20 @@
+#include "../src/farm_printer.hpp"
 #include <catch2/catch_test_macros.hpp>
 #include <catch2/benchmark/catch_benchmark.hpp>
 #include <catch2/benchmark/catch_constructor.hpp>
 #include <catch2/generators/catch_generators_range.hpp>
-#include "../src/player.hpp"
+#include "../src/farm.cpp"
 #include "../src/inventory.hpp"
-#include "../src/farm_and_friends/farm.hpp"
 #include "../src/item.hpp"
-#include "../src/items/seeds.hpp"
+#include "../src/plant.cpp"
+#include "../src/player.hpp"
+#include "../src/plot.hpp"
+#include "../src/soil.cpp"
+#include "../src/weed.hpp"
 #include "../src/items/produce.hpp"
+#include "../src/items/seeds.hpp"
 #include "../src/plants/carrot.hpp"
 #include "../src/plants/melon.hpp"
-#include "../src/farm_and_friends/plant.hpp"
-#include "../src/farm_and_friends/farm_printer.hpp"
 
 TEST_CASE( "it pretty prints a single plot of land" ) {
     Player p;

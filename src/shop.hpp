@@ -1,11 +1,10 @@
 #ifndef SHOP_H
 #define SHOP_H
+#include "ansi_clear.hpp"
 #include "inventory.hpp"
 #include "item.hpp"
-#include "../src/items/seeds.hpp"
-#include "../src/items/produce.hpp"
-#include "../src/inventory.hpp"
-#include "../src/ansi_clear.hpp"
+#include "items/produce.hpp"
+#include "items/seeds.hpp"
 
 class Shop {
     std::vector<seeds *> allSeeds;
