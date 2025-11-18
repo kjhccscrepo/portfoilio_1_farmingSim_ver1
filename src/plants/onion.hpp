@@ -3,13 +3,14 @@
 #include <string>
 #include <vector>
 #include "../farm_and_friends/plant.hpp"
+
 class Onion final : public plant {
 public:
     Onion() {
         setName("Onion");
         setAge(1);
         setMatureTime(5);
-        setStates({"x","y","Y"});
+        setStates({"x", "y", "Y"});
         setSeedDrops({1, 2});
         setWeightedOddsSeeds({90, 10});
         setProduceDrops({2, 3, 4, 5, 6, 7});

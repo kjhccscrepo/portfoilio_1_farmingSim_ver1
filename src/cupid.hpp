@@ -29,19 +29,27 @@ private:
     Player player;
     Farm farm;
     Shop shop;
-    std::vector<seeds*> seed_unlockables;
+    std::vector<seeds *> seed_unlockables;
     bool seeds_unlocked[3] = {false};
     bool in_menus = false;
+
     void try_plant();
+
     void seed_change(GamePrinter *printer, std::string &input);
+
     void inventory_peek(GamePrinter *printer, std::string &input);
+
     void legend_peek(GamePrinter *printer, std::string &input);
+
     void weed_time();
+
     void end_day();
+
     void water();
 
 public:
     explicit cupid();
+
     void runGame();
 };
 #endif

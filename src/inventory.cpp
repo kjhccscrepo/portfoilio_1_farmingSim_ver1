@@ -22,28 +22,35 @@ int inventory::has(item *item_ptr) {
     } // not found, didn't think it found
     return -1;
 }
+
 void inventory::add_item(item *item_ptr) {
     int item_position = has(item_ptr);
-    if (item_position >= 0) { // if this returns 0 or greater, then the item at that slot exists
+    if (item_position >= 0) {
+        // if this returns 0 or greater, then the item at that slot exists
         this->myInventory[item_position]->increase_quantity();
-    } else { // else, the item does not yet exist in the inventory and must be added.
+    } else {
+        // else, the item does not yet exist in the inventory and must be added.
         this->myInventory.push_back(item_ptr);
         this->myInventory[myInventory.size() - 1]->increase_quantity();
     }
 }
+
 void inventory::add_item_X_times(item *item_ptr, const int &i) {
     int item_position = has(item_ptr);
-    if (item_position >= 0) { // if this returns 0 or greater, then the item at that slot exists
+    if (item_position >= 0) {
+        // if this returns 0 or greater, then the item at that slot exists
         for (int j = 0; j < i; j++) {
             this->myInventory[item_position]->increase_quantity();
         }
-    } else { // else, the item does not yet exist in the inventory and must be added.
+    } else {
+        // else, the item does not yet exist in the inventory and must be added.
         myInventory.push_back(item_ptr);
         for (int j = 0; j < i; j++) {
             this->myInventory[myInventory.size() - 1]->increase_quantity();
         }
     }
 }
+
 bool inventory::can_remove(item *item_ptr) {
     int item_position = has(item_ptr);
     if (item_position >= 0) {
@@ -54,12 +61,14 @@ bool inventory::can_remove(item *item_ptr) {
     }
     return false;
 }
+
 void inventory::remove_item(item *item_ptr) {
     if (can_remove(item_ptr)) {
         int item_position = has(item_ptr);
         myInventory[item_position]->decrease_quantity();
     }
 }
+
 std::stringstream inventory::inventory_stream() const {
     std::stringstream inventoryStringStream;
     for (int i = 0; i < myInventory.size(); i++) {
@@ -83,7 +92,6 @@ std::string inventory::sell_stream() const {
         sellStream << "./n";
     }
     return sellStream.str();
-
 }
 
 void inventory::move_item_to_front(const int &x) {
@@ -91,6 +99,7 @@ void inventory::move_item_to_front(const int &x) {
         std::ranges::rotate(myInventory, myInventory.begin() + x);
     }
 }
+
 bool inventory::is_first_item_plantable() const {
     if (myInventory[0]->isSeed()) {
         if (myInventory[0]->quantity() > 0) {
@@ -99,31 +108,37 @@ bool inventory::is_first_item_plantable() const {
     }
     return false;
 }
+
 std::string inventory::first_name() const {
     return myInventory[0]->getMyName();
 }
+
 int inventory::mySize() const {
     return myInventory.size();
 }
+
 bool inventory::is_X_item_plantable(int x) const {
     if (myInventory[x]->isSeed()) {
         return true;
     }
     return false;
 }
+
 void inventory::remove_1_seed() const {
     myInventory[0]->decrease_quantity();
 }
 
 plant *inventory::pointer_to_plant() const {
-    return dynamic_cast<plant*>(this->myInventory[0]->pointer());
+    return dynamic_cast<plant *>(this->myInventory[0]->pointer());
 }
+
 int inventory::how_many_types_of_things() const {
     if (myInventory.empty()) {
         return 0;
     }
     return myInventory.size();
 }
+
 std::string inventory::getSelectedSeed() const {
     if (myInventory[0]->isSeed() && myInventory[0]->quantity() > 0) {
         return first_name();
@@ -147,7 +162,8 @@ std::string inventory::buy_attempt(item *item_ptr, const int &amount = 1) {
     }
     myMoney -= total_price;
     add_item_X_times(item_ptr, amount);
-    return ("Brought x" + std::to_string(amount) + " " + item_ptr->getMyName() + ", for $" + std::to_string(total_price) + ".\n");
+    return ("Brought x" + std::to_string(amount) + " " + item_ptr->getMyName() + ", for $" + std::to_string(total_price)
+            + ".\n");
 }
 
 std::string inventory::sell_attempt(const int &it, const int &amount) {

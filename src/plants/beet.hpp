@@ -2,6 +2,7 @@
 #define BEET_H
 #include <vector>
 #include "../farm_and_friends/plant.hpp"
+
 class Beet final : public plant {
 public:
     Beet() {
@@ -9,7 +10,7 @@ public:
         setAge(1);
         setMatureTime(8);
         setWeightedStates({2, 5});
-        setStates({"x","b","B"});
+        setStates({"x", "b", "B"});
 
         setSeedDrops({1, 2});
         setWeightedOddsSeeds({30, 20});

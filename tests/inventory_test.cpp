@@ -2,11 +2,11 @@
 #include <catch2/benchmark/catch_benchmark.hpp>
 #include <catch2/benchmark/catch_constructor.hpp>
 #include <catch2/generators/catch_generators_range.hpp>
+#include "../src/farm_and_friends/plant.hpp"
 #include "../src/inventory.hpp"
 #include "../src/item.hpp"
 #include "../src/items/produce.hpp"
 #include "../src/items/seeds.hpp"
-#include "../src/farm_and_friends/plant.hpp"
 #include "../src/plants/carrot.hpp"
 
 TEST_CASE( "an inventory can have an item put in it" ) {

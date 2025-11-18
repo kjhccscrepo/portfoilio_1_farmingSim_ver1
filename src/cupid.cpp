@@ -1,7 +1,8 @@
 #include "cupid.hpp"
 
 void cupid::try_plant() {
-    if (playerInventory.is_first_item_plantable()) { // a seed has been selected and verified!
+    if (playerInventory.is_first_item_plantable()) {
+        // a seed has been selected and verified!
         plant *new_plant = new plant(playerInventory.pointer_to_plant());
         farm.plant(player.getX(), player.getY(), new_plant);
         playerInventory.remove_1_seed();
@@ -18,7 +19,7 @@ void cupid::seed_change(GamePrinter *printer, std::string &input) {
         std::cout << "Select an appropriate seed by entering its slot in your inventory.";
         std::cout << std::endl;
         std::cin >> input;
-        if(input == "r") {
+        if (input == "r") {
             in_menus = false;
         } else if (isdigit(input.front())) {
             if (std::stoi(input) > 0 && std::stoi(input) <= (playerInventory.mySize())) {
@@ -40,7 +41,7 @@ void cupid::inventory_peek(GamePrinter *printer, std::string &input) {
         ansi_clear();
         std::cout << printer->prettyPrint_Inventory() << std::endl;
         std::cin >> input;
-        if(input == "r") {
+        if (input == "r") {
             in_menus = false;
         }
     }
@@ -53,7 +54,7 @@ void cupid::legend_peek(GamePrinter *printer, std::string &input) {
         ansi_clear();
         std::cout << printer->prettyPrint_Legend() << std::endl;
         std::cin >> input;
-        if(input == "r") {
+        if (input == "r") {
             in_menus = false;
         }
     }
@@ -117,8 +118,6 @@ void cupid::end_day() {
             shop.new_seed(seed_unlockables[0]);
         }
     }
-
-
 }
 
 void cupid::water() {
@@ -194,34 +193,46 @@ void cupid::runGame() {
     bool game_in_progress = true;
     std::string player_input;
     srand(time(nullptr));
-    while(game_in_progress) {
+    while (game_in_progress) {
         ansi_clear();
         std::cout << game_printer.prettyPrint_Game() << std::endl;
         std::cin >> player_input;
-        if(player_input == "q") { // exits game
+        if (player_input == "q") {
+            // exits game
             game_in_progress = false;
             std::cout << "\nThank you for playing!\n";
-        } else if(player_input == "w") { // move up
+        } else if (player_input == "w") {
+            // move up
             player.move_up();
-        } else if(player_input == "a") { // move left
+        } else if (player_input == "a") {
+            // move left
             player.move_left();
-        } else if(player_input == "d") { // move right
+        } else if (player_input == "d") {
+            // move right
             player.move_right();
-        } else if(player_input == "s") { // move down
+        } else if (player_input == "s") {
+            // move down
             player.move_down();
-        } else if(player_input == "p") { // plant
-            if (farm.harvest_val() == 1) { // it is soil and can be planted!
+        } else if (player_input == "p") {
+            // plant
+            if (farm.harvest_val() == 1) {
+                // it is soil and can be planted!
                 try_plant();
             }
-        } else if (player_input == "h") { // harvest
-            if (farm.harvest_val() == 3) { // 3 means it can and will be harvested
+        } else if (player_input == "h") {
+            // harvest
+            if (farm.harvest_val() == 3) {
+                // 3 means it can and will be harvested
                 farm.set_soil();
             }
-        } else if (player_input == "o") { // change seed
+        } else if (player_input == "o") {
+            // change seed
             seed_change(&game_printer, player_input);
-        } else if(player_input == "e") { // tick day
+        } else if (player_input == "e") {
+            // tick day
             end_day();
-        } else if (player_input == "i") { // show inventory
+        } else if (player_input == "i") {
+            // show inventory
             inventory_peek(&game_printer, player_input);
         } else if (player_input == "l") {
             legend_peek(&game_printer, player_input);

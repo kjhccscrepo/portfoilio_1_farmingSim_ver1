@@ -68,9 +68,9 @@ std::string Shop::welcome() const {
 }
 
 std::string Shop::menu_options() {
-    std::string menu =  "\n1) Buy new Seeds"
-                        "\n2) Sell Produce/Seeds"
-                        "\n3) Return to Farm";
+    std::string menu = "\n1) Buy new Seeds"
+            "\n2) Sell Produce/Seeds"
+            "\n3) Return to Farm";
     return menu;
 }
 
@@ -174,7 +174,8 @@ void Shop::gotoShop() {
                 std::cout << sell_options() << std::endl;
                 std::getline(std::cin, userInput);
                 if (!userInput.empty()) {
-                    if (const int temp = std::stoi(userInput); temp >= 1 && temp < inventory_ptr->how_many_types_of_things()) {
+                    if (const int temp = std::stoi(userInput);
+                        temp >= 1 && temp < inventory_ptr->how_many_types_of_things()) {
                         choice = temp - 1;
                         break;
                     }
@@ -200,7 +201,6 @@ void Shop::gotoShop() {
                     }
                 }
             }
-
         }
         if (userInput == "3") {
             atShop = false;

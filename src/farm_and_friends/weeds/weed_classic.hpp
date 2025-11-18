@@ -17,9 +17,13 @@ private:
 
 public:
     explicit weed_classic(Farm *ptr, int x, int y);
+
     std::string symbol() override;
+
     std::string myName() override;
+
     void end_day() override;
+
     int harvest() override;
 };
 #endif

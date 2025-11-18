@@ -1,19 +1,20 @@
 #include "../farm_and_friends/plant.hpp"
 
 
-
 bool plant::isGrown() const {
     if (age >= mature_time) {
         return true;
     }
     return false;
 }
+
 std::string plant::symbol() {
     if (!isGrown()) {
         return myStates[(age * (myStates.size() - 1) / (mature_time))];
     }
     return myStates[(myStates.size() - 1)];
 }
+
 int plant::seedDrops() const {
     int rand_num = (rand() % (sum_odds(weighted_odds_seeds)));
     for (int i = 0; i < weighted_odds_seeds.size(); i++) {
@@ -37,6 +38,7 @@ int plant::produceDrops() const {
 std::string plant::myName() {
     return name;
 }
+
 int plant::sum_odds(const std::vector<int> &odds) {
     int sum = 0;
     for (int i = 0; i < odds.size(); i++) {
@@ -44,6 +46,7 @@ int plant::sum_odds(const std::vector<int> &odds) {
     }
     return sum;
 }
+
 int plant::oddsOffset(const int &iteration, const std::vector<int> &odds) {
     int offset = 0;
     for (int i = 0; i <= iteration; i++) {
@@ -72,12 +75,15 @@ int plant::harvest() {
 void plant::setName(const std::string &set_name) {
     name = set_name;
 }
+
 void plant::setAge(const int &set_age) {
     age = set_age;
 }
+
 void plant::setMatureTime(const int &set_mature_time) {
     mature_time = set_mature_time;
 }
+
 void plant::setStates(const std::vector<std::string> &set_states) {
     if (weightedStates.empty()) {
         for (int i = 0; i < mature_time; i++) {
@@ -106,12 +112,15 @@ void plant::setWeightedStates(const std::vector<int> &set_weighted_states) {
 void plant::setSeedDrops(const std::vector<int> &set_drop_amount_seed) {
     drop_amount_seed = set_drop_amount_seed;
 }
+
 void plant::setWeightedOddsSeeds(const std::vector<int> &set_weighted_odds_seeds) {
     weighted_odds_seeds = set_weighted_odds_seeds;
 }
+
 void plant::setProduceDrops(const std::vector<int> &set_drop_amount_produce) {
     drop_amount_produce = set_drop_amount_produce;
 }
+
 void plant::setWeightedOddsProduces(const std::vector<int> &set_weighted_odds_produce) {
     weighted_odds_produce = set_weighted_odds_produce;
 }

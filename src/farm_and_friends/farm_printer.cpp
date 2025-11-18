@@ -1,6 +1,8 @@
 
 #include "farm_printer.hpp"
-FarmPrinter::FarmPrinter(Farm *farm_ptr) : farm_to_print(farm_ptr) {}
+
+FarmPrinter::FarmPrinter(Farm *farm_ptr) : farm_to_print(farm_ptr) {
+}
 
 std::stringstream FarmPrinter::prettyPrint() const {
   std::stringstream output;

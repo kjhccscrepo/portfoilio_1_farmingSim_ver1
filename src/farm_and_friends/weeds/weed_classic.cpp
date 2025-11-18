@@ -22,8 +22,7 @@ void weed_classic::end_day() {
     if (w_Y - 1 != 0) {
         if (farm_ptr->get_symbol(w_X, w_Y - 1) == "~") {
             farm_ptr->plant(w_X, w_Y - 1, this);
-        }
-        else {
+        } else {
             if (const int r = (rand() % (99)) + 1; r > 15) {
                 farm_ptr->plant(w_X, w_Y - 1, this);
             }
@@ -33,8 +32,7 @@ void weed_classic::end_day() {
     if (w_Y + 1 != farm_ptr->column_capacity()) {
         if (farm_ptr->get_symbol(w_X, w_Y + 1) == "~") {
             farm_ptr->plant(w_X, w_Y + 1, this);
-        }
-        else {
+        } else {
             if (const int r = (rand() % (99)) + 1; r > 15) {
                 farm_ptr->plant(w_X, w_Y + 1, this);
             }
@@ -44,8 +42,7 @@ void weed_classic::end_day() {
     if (w_X + 1 != 0) {
         if (farm_ptr->get_symbol(w_X - 1, w_Y) == "~") {
             farm_ptr->plant(w_X - 1, w_Y, this);
-        }
-        else {
+        } else {
             if (const int r = (rand() % (99)) + 1; r > 15) {
                 farm_ptr->plant(w_X - 1, w_Y, this);
             }
@@ -55,8 +52,7 @@ void weed_classic::end_day() {
     if (w_X + 1 != farm_ptr->row_capacity()) {
         if (farm_ptr->get_symbol(w_X + 1, w_Y) == "~") {
             farm_ptr->plant(w_X + 1, w_Y, this);
-        }
-        else {
+        } else {
             if (const int r = (rand() % (99)) + 1; r > 15) {
                 farm_ptr->plant(w_X + 1, w_Y, this);
             }

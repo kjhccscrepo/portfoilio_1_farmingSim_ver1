@@ -2,17 +2,16 @@
 #include <catch2/benchmark/catch_benchmark.hpp>
 #include <catch2/benchmark/catch_constructor.hpp>
 #include <catch2/generators/catch_generators_range.hpp>
-#include "../src/player.hpp"
-#include "../src/inventory.hpp"
 #include "../src/farm_and_friends/farm.hpp"
-#include "../src/plants/carrot.hpp"
-#include "../src/plants/melon.hpp"
+#include "../src/inventory.hpp"
+#include "../src/item.hpp"
+#include "../src/player.hpp"
 #include "../src/farm_and_friends/plant.hpp"
 #include "../src/farm_and_friends/plot.hpp"
-#include "../src/farm_and_friends/soil.hpp"
-#include "../src/items/seeds.hpp"
-#include "../src/item.hpp"
 #include "../src/items/produce.hpp"
+#include "../src/items/seeds.hpp"
+#include "../src/plants/carrot.hpp"
+#include "../src/plants/melon.hpp"
 TEST_CASE( "it can be initialized with a single plot" ) {
   Player player;
   Farm farm(1, 1);

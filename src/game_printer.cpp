@@ -1,4 +1,5 @@
 #include "game_printer.hpp"
+
 GamePrinter::GamePrinter(FarmPrinter *farm_printer_ptr, inventory *iIPointer) {
     myFarmPrinted = farm_printer_ptr;
     myInventoryPointer = iIPointer;
@@ -24,6 +25,7 @@ void GamePrinter::generate_legend() {
     legend_print << "r:\treturn to the game\n";
     legend = legend_print.str();
 }
+
 void GamePrinter::generate_inventory() {
     inventory_print.str("");
     inventory_print.clear();
@@ -41,6 +43,7 @@ void GamePrinter::generate_inventory() {
     inventory_print << "r:\treturn to the game\n";
     inventory_p = inventory_print.str();
 }
+
 void GamePrinter::generate_info() {
     info_print.str("");
     info_print.clear();
@@ -53,6 +56,7 @@ void GamePrinter::generate_info() {
     info_print << "q:\tquit the game\n";
     info = info_print.str();
 }
+
 std::string GamePrinter::prettyPrint_Game() {
     generate_info();
     game_stream.str("");
@@ -77,12 +81,15 @@ std::string GamePrinter::prettyPrint_Game() {
     }
     return game_stream.str();
 }
+
 std::string GamePrinter::prettyPrint_Legend() {
     return legend;
 }
+
 std::string GamePrinter::prettyPrint_Inventory() {
     return inventory_p;
 }
+
 std::string GamePrinter::getStreamLine(const std::string &input_string, const int &n) {
     std::string line;
     std::istringstream input_stream;

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.24)
 
-project("Farming Simulator - v1a")
+project("Farming Simulator - v2b")
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -14,8 +14,6 @@ FetchContent_Declare(
 )
 
 FetchContent_MakeAvailable(Catch2)
-
-
 
 add_executable(soil_test tests/soil_test.cpp
         src/farm_and_friends/soil.cpp
@@ -73,20 +71,16 @@ add_executable(inventory_test tests/inventory_test.cpp
         src/inventory.cpp
         src/items/produce.cpp
         src/items/seeds.cpp
-        src/item.hpp
         src/farm_and_friends/plant.cpp
 )
 add_executable(farm_test tests/farm_test.cpp
-        src/player.cpp
-        src/inventory.cpp
         src/farm_and_friends/farm.cpp
-        src/farm_and_friends/soil.cpp
-        src/farm_and_friends/plot.hpp
-        src/farm_and_friends/plant.cpp
-        src/plants/carrot.hpp
+        src/player.cpp
         src/item.hpp
         src/items/seeds.cpp
         src/items/produce.cpp
+        src/farm_and_friends/plant.cpp
+        src/inventory.cpp
 )
 add_executable(farm_printer_test tests/farm_printer_test.cpp
         src/farm_and_friends/farm_printer.cpp
@@ -137,23 +131,20 @@ add_executable(player_test tests/player_test.cpp
         src/farm_and_friends/plant.cpp
 )
 add_executable(main main.cpp
-        src/ansi_clear.hpp
-        src/farm_and_friends/plot.hpp
-        src/farm_and_friends/soil.cpp
-        src/farm_and_friends/plant.cpp
-        src/plants/carrot.hpp
-        src/plants/melon.hpp
-        src/plants/onion.hpp
-        src/plants/zucchini.hpp
-        src/item.hpp
-        src/items/produce.cpp
-        src/items/seeds.cpp
-        src/inventory.cpp
-        src/player.cpp
-        src/farm_and_friends/farm.cpp
-        src/farm_and_friends/farm_printer.cpp
-        src/game_printer.cpp
+        src/cupid.cpp
 )
+
+
+target_link_libraries(farm_printer_test PRIVATE Catch2::Catch2WithMain)
+
+target_link_libraries(game_printer_test PRIVATE Catch2::Catch2WithMain)
+
+target_link_libraries(inventory_test PRIVATE Catch2::Catch2WithMain)
+target_link_libraries(farm_test PRIVATE Catch2::Catch2WithMain)
+target_link_libraries(player_test PRIVATE Catch2::Catch2WithMain)
+target_link_libraries(soil_test PRIVATE Catch2::Catch2WithMain)
+target_link_libraries(seeds_test PRIVATE Catch2::Catch2WithMain)
+target_link_libraries(produce_test PRIVATE Catch2::Catch2WithMain)
 
 target_link_libraries(beet_test PRIVATE Catch2::Catch2WithMain)
 target_link_libraries(brussels_sprouts_test PRIVATE Catch2::Catch2WithMain)
@@ -163,12 +154,3 @@ target_link_libraries(melon_test PRIVATE Catch2::Catch2WithMain)
 target_link_libraries(onion_test PRIVATE Catch2::Catch2WithMain)
 target_link_libraries(spinach_test PRIVATE Catch2::Catch2WithMain)
 target_link_libraries(zucchini_test PRIVATE Catch2::Catch2WithMain)
-
-target_link_libraries(inventory_test PRIVATE Catch2::Catch2WithMain)
-target_link_libraries(farm_test PRIVATE Catch2::Catch2WithMain)
-target_link_libraries(farm_printer_test PRIVATE Catch2::Catch2WithMain)
-target_link_libraries(game_printer_test PRIVATE Catch2::Catch2WithMain)
-target_link_libraries(player_test PRIVATE Catch2::Catch2WithMain)
-target_link_libraries(soil_test PRIVATE Catch2::Catch2WithMain)
-target_link_libraries(seeds_test PRIVATE Catch2::Catch2WithMain)
-target_link_libraries(produce_test PRIVATE Catch2::Catch2WithMain)
