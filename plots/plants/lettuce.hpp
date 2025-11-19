@@ -1,0 +1,25 @@
+//
+// Created by kistj on 11/18/2025.
+//
+
+#ifndef FARMING_SIMULATOR_V2C_LETTUCE_HPP
+#define FARMING_SIMULATOR_V2C_LETTUCE_HPP
+#include <vector>
+#include "../plant.hpp"
+
+class Lettuce final : public plant {
+public:
+    Lettuce() {
+        setName("Lettuce");
+        setAge(1);
+        setMatureTime(5);
+        setWeightedStates({2, 2});
+        setStates({"x", "l", "L"});
+        setSeedDrops({1});
+        setWeightedOddsSeeds({100});
+        setProduceDrops({1});
+        setWeightedOddsProduces({100});
+        setCost(8);
+    }
+};
+#endif //FARMING_SIMULATOR_V2C_LETTUCE_HPP
