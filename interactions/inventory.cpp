@@ -233,6 +233,6 @@ void inventory::loseMoney(const int n) {
 
 inventory::~inventory() {
     for (int i = myInventory.size() - 1; i >= 0; i--) {
-        delete myInventory[i];
+        myInventory[i] = nullptr;
     }
 }

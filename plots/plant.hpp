@@ -27,7 +27,7 @@ public:
 
     plant() = default;
 
-    ~plant() override = default;
+    ~plant() override;
 
     [[nodiscard]] bool isGrown() const;
 

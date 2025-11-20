@@ -3,6 +3,9 @@
 //
 
 #include "soil.hpp"
+
+Soil::~Soil() = default;
+
 std::string Soil::symbol() {
     return "~";
 }

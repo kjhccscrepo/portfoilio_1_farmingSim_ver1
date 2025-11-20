@@ -1,6 +1,12 @@
 #include "plant.hpp"
 #include "../interactions/item.hpp"
 class item;
+
+plant::~plant() {
+    my_seed = nullptr;
+    my_produce = nullptr;
+}
+
 bool plant::isGrown() const {
     if (age >= mature_time) {
         return true;

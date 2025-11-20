@@ -7,6 +7,8 @@ class Plot;
 
 class Soil final : public Plot {
 public:
+    ~Soil() override;
+
     std::string symbol() override;
 
     std::string myName() override;

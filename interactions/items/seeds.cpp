@@ -45,5 +45,6 @@ void seeds::setCost(int &cost) {
 }
 
 seeds::~seeds() {
-    delete this;
+    myPlant = nullptr;
 }
+

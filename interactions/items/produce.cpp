@@ -48,5 +48,5 @@ void produce::setCost(int &cost) {
 }
 
 produce::~produce() {
-    delete this;
+    myPlant = nullptr;
 }
