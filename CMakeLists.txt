@@ -52,6 +52,7 @@ add_executable(farming_sim main.cpp
         farm_stuff/player.cpp
         farm_stuff/player.hpp
 )
+
 add_executable(plants_tests tests/plot_tests/plants_tests.cpp
         plots/plant.cpp
         plots/plants/beet.hpp
@@ -63,17 +64,21 @@ add_executable(plants_tests tests/plot_tests/plants_tests.cpp
         plots/plants/spinach.hpp
         plots/plants/zucchini.hpp
 )
+
 add_executable(soil_test tests/plot_tests/soil_test.cpp
         plots/soil.cpp
         plots/plot.hpp
         interactions/item.hpp
 )
+
 add_executable(weeds_test tests/plot_tests/weeds_test.cpp
         plots/weeds/weed_classic.cpp
         plots/plot.hpp
         interactions/item.hpp
 )
 
+
+#these tests aren't done yet.
 add_executable(farm_test tests/farms_test/farm_test.cpp)
 add_executable(printer_test tests/farms_test/printer_test.cpp)
 add_executable(player_test tests/farms_test/player_test.cpp)
