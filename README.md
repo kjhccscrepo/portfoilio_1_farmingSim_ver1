@@ -11,7 +11,7 @@ This is a project for csc122 at Harper College.
 - You can view controls in game with "l"
 - You can quit the game with "q"
 - You (currently) end the day by with "e"
-- You can water the current plot you're on with "q"
+- You can water the current plot you're on with "t"
 - *but only when you have enough water*
 - *(it resets at the end of the day)*
 - You can go to the shop by with "m"
@@ -19,3 +19,4 @@ This is a project for csc122 at Harper College.
   - *also upgrades to the capacity of your watering can*
   - *and sell your crops for money to buy things*
 - You can exit most sub menus by with "r"
+- You can exit the game by pressing "q"

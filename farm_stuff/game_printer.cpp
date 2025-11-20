@@ -24,7 +24,7 @@ void GamePrinter::generate_legend() {
     legend_print << "o:\tchange selected seed\n";
     legend_print << "h:\tharvest grown crop\n";
     legend_print << "e:\tend the day\n";
-    legend_print << "q:\twater the selected plot\n";
+    legend_print << "t:\twater the selected plot\n";
     legend_print << "m:\tgo to the shop\n";
     legend_print << "q:\tquit the game\n";
     legend_print << "r:\treturn to the game\n";
@@ -58,7 +58,7 @@ void GamePrinter::generate_info() {
     info_print << "i:\tview inventory\n";
     info_print << "o:\tchange selected seed\n";
     info_print << "p:\tplant selected seed\n";
-    info_print << "q:\twater the selected plot\n";
+    info_print << "t:\twater the selected plot\n";
     info_print << "m:\tgo to the shop\n";
     info_print << "q:\tquit the game\n";
     info = info_print.str();
@@ -74,7 +74,7 @@ std::string GamePrinter::prettyPrint_Game() {
     int i = 0;
     while (std::getline(input_stream, farm_line)) {
         game_stream << farm_line;
-        if (i < 7) {
+        if (i < 9) {
             game_stream << "\t\t";
             game_stream << getStreamLine(info, i);
             i++;

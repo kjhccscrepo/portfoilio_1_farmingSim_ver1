@@ -250,7 +250,7 @@ void cupid::runGame() {
             inventory_peek(&game_printer, player_input);
         } else if (player_input == "l") {
             legend_peek(&game_printer, player_input);
-        } else if (player_input == "q") {
+        } else if (player_input == "t") {
             water();
         } else if (player_input == "m") {
             shop.gotoShop();
