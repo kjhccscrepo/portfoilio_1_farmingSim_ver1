@@ -16,7 +16,7 @@ Player::Player(const std::string &pAvatar) {
 }
 
 Player::Player() {
-    myAvatar = "P";
+    myAvatar = "@";
     current_x = 0;
     current_y = 0;
     maxX = 0;
