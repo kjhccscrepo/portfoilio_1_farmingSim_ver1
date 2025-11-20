@@ -1,4 +1,8 @@
 
+#include <catch2/catch_test_macros.hpp>
+#include <catch2/benchmark/catch_benchmark.hpp>
+#include <catch2/benchmark/catch_constructor.hpp>
+#include <catch2/generators/catch_generators_range.hpp>
 #include "../../plots/plant.hpp"
 #include "../../plots/plants/beet.hpp"
 #include "../../plots/plants/brussel_sprouts.hpp"
@@ -8,10 +12,7 @@
 #include "../../plots/plants/onion.hpp"
 #include "../../plots/plants/spinach.hpp"
 #include "../../plots/plants/zucchini.hpp"
-#include <catch2/catch_test_macros.hpp>
-#include <catch2/benchmark/catch_benchmark.hpp>
-#include <catch2/benchmark/catch_constructor.hpp>
-#include <catch2/generators/catch_generators_range.hpp>
+
 Beet beet;
 Brussels_Sprouts brussel;
 Carrot carrot_waterTest;
@@ -22,7 +23,7 @@ Onion onion;
 Spinach spinach;
 Zucchini zucchini;
 
-TEST_CASE( "A Beet behaves as expected" ) {
+TEST_CASE( "Beet behaves as expected" ) {
     REQUIRE( beet.symbol() == "x" );
     beet.end_day();
     REQUIRE( beet.symbol() == "x" );

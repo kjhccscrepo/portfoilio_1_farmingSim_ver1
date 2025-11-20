@@ -10,11 +10,11 @@ class item;
 // base class for a plant.
 class plant : public Plot {
 public:
-    int cost{0};
+    int cost{};
     bool hasWater{false};
     std::string name;
     int age{1};
-    int mature_time{7};
+    int mature_time{};
     std::vector<std::string> myStates;
     std::vector<int> weightedStates;
     std::vector<int> drop_amount_seed;
@@ -35,9 +35,9 @@ public:
 
     void end_day() override;
 
-    [[nodiscard]] int seedDrops() const;
+    int seedDrops() override;
 
-    [[nodiscard]] int produceDrops() const;
+    int produceDrops() override;
 
     std::string myName() override;
 

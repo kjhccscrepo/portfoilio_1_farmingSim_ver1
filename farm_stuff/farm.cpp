@@ -1,20 +1,17 @@
-//
-// Created by kistj on 11/18/2025.
-//
 
 #include "farm.hpp"
-#include <array>
 #include "../plots/soil.hpp"
+#include "../plots/weeds/weed_classic.hpp"
 
 Farm::Farm(const int ini_rows, const int ini_columns) {
     myPlayer = nullptr;
     rows = ini_rows;
     columns = ini_columns;
     for (int i = 0; i < ini_rows; i++) {
-        std::vector<Plot *> row;
+        std::vector<Plot*> row;
         for (int j = 0; j < ini_columns; j++) {
-            auto soil = new Soil();
-            row.push_back(soil);
+            const auto new_plot = new Soil();
+            row.push_back(new_plot);
         }
         plots.push_back(row);
     }
@@ -25,18 +22,9 @@ void Farm::link_Player(Player *player_ptr) {
     myPlayer = player_ptr;
 }
 
-int Farm::harvest_val() {
+int Farm::harvest_val() const {
     if (plots[myPlayer->getX()][myPlayer->getY()] != nullptr) {
-        int *tempInt = new int;
-        tempInt[0] = plots[myPlayer->getX()][myPlayer->getY()]->harvest();
-        if (*tempInt >= 0) {
-            delete tempInt;
-            return plots[myPlayer->getX()][myPlayer->getY()]->harvest();
-        }
-        if (tempInt[0] == -10) { // it's a weed.
-            set_soil();
-        }
-        delete tempInt;
+        return plots[myPlayer->getX()][myPlayer->getY()]->harvest();
     }
     return 0;
 }
@@ -68,16 +56,48 @@ int Farm::getDays() const {
     return dayCounter;
 }
 
-void Farm::plant(int row, int column, Plot *plot) {
-    Plot *current_plot = plots.at(row).at(column);
-    plots.at(row).at(column) = plot;
+void Farm::plant(int row, int column, Plot *new_plot) {
+    const Plot *current_plot = plots.at(row).at(column);
+    plots.at(row).at(column) = new_plot;
     delete current_plot;
 }
 
 void Farm::end_day() {
+    xBuffer.clear();
+    xBuffer = {};
+    yBuffer.clear();
+    yBuffer = {};
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < columns; j++) {
-            plots.at(i).at(j)->end_day();
+            if (plots.at(i).at(j)->harvest() == -10) { // it's a weed and should spread
+                xBuffer.push_back(i);
+                yBuffer.push_back(j);
+            } else {
+                plots.at(i).at(j)->end_day();
+            }
+        }
+    }
+    if (xBuffer.size() == yBuffer.size() && xBuffer.size() > 0 && yBuffer.size() > 0) {
+        const int xMax = row_capacity();
+        const int yMax = column_capacity();
+
+        for (int i = 0; i < xBuffer.size(); i++) {
+            if (xBuffer[i] > 0) {
+                const auto weed = new weed_classic();
+                plant(xBuffer[i] - 1, yBuffer[i], weed);
+            }
+            if (yBuffer[i] > 0) {
+                const auto weed = new weed_classic();
+                plant(xBuffer[i], yBuffer[i] - 1, weed);
+            }
+            if (xBuffer[i] < xMax - 1) {
+                const auto weed = new weed_classic();
+                plant(xBuffer[i] + 1, yBuffer[i], weed);
+            }
+            if (yBuffer[i] < yMax - 1) {
+                const auto weed = new weed_classic();
+                plots[xBuffer[i]][yBuffer[i] + 1] = weed;
+            }
         }
     }
     dayCounter = 1 + dayCounter;

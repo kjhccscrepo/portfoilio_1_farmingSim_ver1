@@ -78,12 +78,12 @@ std::string GamePrinter::prettyPrint_Game() {
             i++;
         }
         game_stream << "\n";
-        game_stream << "Watering Can Amount:\t ";
-        for (int w = 0; w < myInventoryPointer->getCurrentWater(); w++) {
-            game_stream << "|";
-        }
-        game_stream << "\n";
     }
+    game_stream << "Watering Can Amount:\t ";
+    for (int w = 0; w < myInventoryPointer->getCurrentWater(); w++) {
+        game_stream << "|";
+    }
+    game_stream << "\n";
     return game_stream.str();
 }
 

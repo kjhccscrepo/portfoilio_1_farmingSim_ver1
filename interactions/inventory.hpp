@@ -64,7 +64,7 @@ public:
 
     [[nodiscard]] int getAmountOfItemX(const int &x) const;
 
-    void end_day();
+    void reset_water();
 
     bool try_water();
 
@@ -73,6 +73,8 @@ public:
     void upgrade_water();
 
     void loseMoney(int n);
+
+    ~inventory();
 };
 
 #endif //FARMING_SIMULATOR_V2C_INVENTORY_HPP

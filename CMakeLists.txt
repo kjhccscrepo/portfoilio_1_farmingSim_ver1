@@ -76,6 +76,7 @@ add_executable(weeds_test tests/plot_tests/weeds_test.cpp
 
 add_executable(farm_test tests/farms_test/farm_test.cpp)
 add_executable(printer_test tests/farms_test/printer_test.cpp)
+add_executable(player_test tests/farms_test/player_test.cpp)
 add_executable(shop_test tests/farms_test/shop_test.cpp)
 add_executable(item_test tests/farms_test/item_test.cpp)
 add_executable(inventory_test tests/farms_test/inventory_test.cpp)
@@ -88,6 +89,7 @@ target_link_libraries(weeds_test PRIVATE Catch2::Catch2WithMain)
 
 target_link_libraries(farm_test PRIVATE Catch2::Catch2WithMain)
 target_link_libraries(printer_test PRIVATE Catch2::Catch2WithMain)
+target_link_libraries(player_test PRIVATE Catch2::Catch2WithMain)
 target_link_libraries(shop_test PRIVATE Catch2::Catch2WithMain)
 target_link_libraries(item_test PRIVATE Catch2::Catch2WithMain)
 

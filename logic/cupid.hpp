@@ -1,12 +1,5 @@
-//
-// Created by kistj on 11/18/2025.
-//
-
 #ifndef FARMING_SIMULATOR_V2C_CUPID_HPP
 #define FARMING_SIMULATOR_V2C_CUPID_HPP
-
-
-
 // this class handles setup for the game,
 // and it pairs the classes.
 
@@ -25,9 +18,11 @@ private:
     Player player;
     Farm farm;
     Shop shop;
-    std::vector<seeds *> seed_unlockables;
+    std::vector<seeds*> seed_unlockables;
     bool seeds_unlocked[3] = {false};
     bool in_menus = false;
+
+    void unlock_seeds();
 
     void try_plant();
 
@@ -37,7 +32,7 @@ private:
 
     void legend_peek(GamePrinter *printer, std::string &input);
 
-    void weed_time();
+    void weed_generate();
 
     void tick_day();
 

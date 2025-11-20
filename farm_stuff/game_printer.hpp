@@ -7,6 +7,7 @@
 
 #include <sstream>
 #include "farm_printer.hpp"
+#include "../interactions/inventory.hpp"
 
 class GamePrinter {
     FarmPrinter *myFarmPrinted;

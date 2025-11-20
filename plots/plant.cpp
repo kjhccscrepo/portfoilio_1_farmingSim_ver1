@@ -15,7 +15,7 @@ std::string plant::symbol() {
     return myStates[(myStates.size() - 1)];
 }
 
-int plant::seedDrops() const {
+int plant::seedDrops() {
     const int rand_num = (rand() % (sum_odds(weighted_odds_seeds)));
     for (int i = 0; i < weighted_odds_seeds.size(); i++) {
         if (rand_num <= oddsOffset(i, weighted_odds_seeds)) {
@@ -25,7 +25,7 @@ int plant::seedDrops() const {
     return 1; // if it somehow reaches the end
 }
 
-int plant::produceDrops() const {
+int plant::produceDrops() {
     const int rand_num = (rand() % (sum_odds(weighted_odds_produce)));
     for (int i = 0; i < weighted_odds_produce.size(); i++) {
         if (rand_num <= oddsOffset(i, weighted_odds_produce)) {
@@ -64,10 +64,7 @@ void plant::link_this_class(item *seed_pointer, item *produce_pointer) {
 
 int plant::harvest() {
     if (isGrown()) {
-        if (!beingHarvested) {
-            return produceDrops();
-        }
-        return seedDrops();
+        return 1;
     }
     return -3;
 }
@@ -152,9 +149,11 @@ item *plant::producePointer() {
 }
 
 void plant::end_day() {
-    age += 1;
-    if (hasWater) {
-        age += 2;
-        hasWater = false;
+    if (age <= mature_time) {
+        age += 1;
+        if (hasWater) {
+            age += 2;
+            hasWater = false;
+        }
     }
 }

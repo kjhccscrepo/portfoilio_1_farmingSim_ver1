@@ -31,3 +31,11 @@ item *Soil::seedPointer() {
 item *Soil::producePointer() {
     return nullptr;
 }
+
+int Soil::seedDrops() {
+    return 0;
+}
+
+int Soil::produceDrops() {
+    return 0;
+}

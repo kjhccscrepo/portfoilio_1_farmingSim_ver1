@@ -1,12 +1,7 @@
-//
-// Created by kistj on 11/18/2025.
-//
-
 #ifndef FARMING_SIMULATOR_V2C_PLOT_HPP
 #define FARMING_SIMULATOR_V2C_PLOT_HPP
 #include <string>
 class item;
-class inventory;
 
 class Plot {
 public:
@@ -25,5 +20,9 @@ public:
     virtual item *seedPointer() = 0;
 
     virtual item *producePointer() = 0;
+
+    virtual int seedDrops() = 0;
+
+    virtual int produceDrops() = 0;
 };
 #endif //FARMING_SIMULATOR_V2C_PLOT_HPP

@@ -1,7 +1,3 @@
-//
-// Created by kistj on 11/18/2025.
-//
-
 #ifndef FARMING_SIMULATOR_V2C_SOIL_HPP
 #define FARMING_SIMULATOR_V2C_SOIL_HPP
 
@@ -24,6 +20,10 @@ public:
     item *seedPointer() override;
 
     item *producePointer() override;
+
+    int seedDrops() override;
+
+    int produceDrops() override;
 };
 
 

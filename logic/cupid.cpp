@@ -1,20 +1,36 @@
-//
-// Created by kistj on 11/18/2025.
-//
 
 #include "cupid.hpp"
 #include "ansi_clear.hpp"
+#include "../interactions/items/produce.hpp"
 #include "../plots/plant.hpp"
-#include "../plots/weeds/weed_classic.hpp"
-#include "../plots/plants/carrot.hpp"
-#include "../plots/plants/melon.hpp"
-#include "../plots/plants/onion.hpp"
-#include "../plots/plants/zucchini.hpp"
 #include "../plots/plants/beet.hpp"
 #include "../plots/plants/brussel_sprouts.hpp"
+#include "../plots/plants/carrot.hpp"
 #include "../plots/plants/lettuce.hpp"
+#include "../plots/plants/melon.hpp"
+#include "../plots/plants/onion.hpp"
 #include "../plots/plants/spinach.hpp"
-#include "../interactions/items/produce.hpp"
+#include "../plots/plants/zucchini.hpp"
+#include "../plots/weeds/weed_classic.hpp"
+
+void cupid::unlock_seeds() {
+    if (!seeds_unlocked[0]) {
+        if (farm.getDays() > 13) {
+            seeds_unlocked[0] = true;
+            shop.new_seed(seed_unlockables[0]);
+        }
+    } else if (!seeds_unlocked[1]) {
+        if (farm.getDays() > 13) {
+            seeds_unlocked[1] = true;
+            shop.new_seed(seed_unlockables[1]);
+        }
+    } else if (!seeds_unlocked[2]) {
+        if (farm.getDays() > 30) {
+            seeds_unlocked[2] = true;
+            shop.new_seed(seed_unlockables[2]);
+        }
+    }
+}
 
 void cupid::try_plant() {
     if (playerInventory.is_first_item_plantable()) {
@@ -76,11 +92,10 @@ void cupid::legend_peek(GamePrinter *printer, std::string &input) {
     }
 }
 
-void cupid::weed_time() {
+void cupid::weed_generate() {
     const int r = (rand() % 99) + 1;
     int w = 0;
     if (r == 100) {
-        w++;
         w++;
     }
     if (r >= 75) {
@@ -98,16 +113,8 @@ void cupid::weed_time() {
     while (w != 0) {
         const int x = rand() % (farm.row_capacity() - 1);
         const int y = rand() % (farm.column_capacity() - 1);
-        if (farm.get_symbol(x, y) == "~") {
-            auto *weed_ptr = new weed_classic(&farm, x, y);
-            farm.plant(x, y, weed_ptr);
-        } else if (farm.get_symbol(x, y) != "*") {
-            const int o = (rand() % 9) + 1;
-            if (o > 6) {
-                auto *weed_ptr = new weed_classic(&farm, x, y);
-                farm.plant(x, y, weed_ptr);
-            }
-        }
+        auto *weed_ptr = new weed_classic();
+        farm.plant(x, y, weed_ptr);
         w--;
     }
 }
@@ -115,25 +122,8 @@ void cupid::weed_time() {
 
 void cupid::tick_day() {
     farm.end_day();
-    playerInventory.end_day();
-    weed_time();
-
-    if (!seeds_unlocked[2]) {
-        if (farm.getDays() > 30) {
-            seeds_unlocked[2] = true;
-            shop.new_seed(seed_unlockables[2]);
-        }
-    } else if (!seeds_unlocked[1]) {
-        if (farm.getDays() > 13) {
-            seeds_unlocked[1] = true;
-            shop.new_seed(seed_unlockables[1]);
-        }
-    } else if (!seeds_unlocked[0]) {
-        if (farm.getDays() > 13) {
-            seeds_unlocked[0] = true;
-            shop.new_seed(seed_unlockables[0]);
-        }
-    }
+    this->weed_generate();
+    playerInventory.reset_water();
 }
 
 void cupid::water() {
@@ -142,7 +132,7 @@ void cupid::water() {
     }
 }
 
-cupid::cupid() : farm(9, 11) {
+cupid::cupid() : farm(19, 9) {
 }
 
 void cupid::runGame() {
@@ -232,24 +222,23 @@ void cupid::runGame() {
             // move down
             player.move_down();
         } else if (player_input == "p") {
-
-            CHANGE THIS TOO
-
             // plant
-            if (farm.harvest_val() == 1) {
-                // it is soil and can be planted!
+            if (farm.harvest_val() == -1) { // it is soil and can be planted!
                 try_plant();
             }
-        } else if (player_input == "h") {         CHANGE THIS TOO
+        } else if (player_input == "h") {
             // harvest
-            if (farm.harvest_val() >= 0) { // IF ITS 0 OR HIGHER ITS A MATURED PLANT
-                playerInventory.add_item_X_times(farm.current_plot()->)
-
-            }
-            if (farm.harvest_val() == 3) {
-                // 3 means it can and will be harvested
+            const int temp_int = farm.harvest_val();
+            if (temp_int == 1) { // 1 means it can and will be harvested
+                playerInventory.add_item_X_times(farm.current_plot()->seedPointer(), farm.current_plot()->seedDrops());
+                playerInventory.add_item_X_times(farm.current_plot()->producePointer(), farm.current_plot()->produceDrops());
                 farm.set_soil();
             }
+            if (temp_int == -10) { // it's a weed
+                farm.set_soil();
+            }
+
+
         } else if (player_input == "o") {
             // change seed
             seed_change(&game_printer, player_input);

@@ -203,7 +203,7 @@ int inventory::getAmountOfItemX(const int &x) const {
     return -1;
 }
 
-void inventory::end_day() {
+void inventory::reset_water() {
     current_water = max_water;
 }
 
@@ -228,5 +228,11 @@ void inventory::loseMoney(const int n) {
         myMoney -= n;
     } else {
         std::cout << "You don't have enough money!\n";
+    }
+}
+
+inventory::~inventory() {
+    for (int i = myInventory.size() - 1; i >= 0; i--) {
+        delete myInventory[i];
     }
 }
