@@ -88,11 +88,13 @@ std::string Shop::buy_options() const {
         buy_opt << allSeeds[i]->getMyName();
         buy_opt << ":\t$";
         buy_opt << allSeeds[i]->getCost();
+        buy_opt << "\n";
     }
     if (waterCan() != 0) {
         buy_opt << (i + 2) << ") ";
         buy_opt << "Better Watering Can:\t $";
         buy_opt << waterCan();
+        buy_opt << "\n";
     }
     return buy_opt.str();
 }
@@ -131,8 +133,12 @@ void Shop::gotoShop() {
             bool purchase_seed = false;
             while (true) {
                 std::cout << buy_options() << std::endl;
+                std::cout << "r) exit\n";
                 std::getline(std::cin, userInput);
                 if (!userInput.empty()) {
+                    if (userInput == "r") {
+                        break;
+                    }
                     if (waterCan() != 0) {
                         if (std::stoi(userInput) == allSeeds.size()) {
                             if (waterCan() <= inventory_ptr->getMoney()) {
@@ -160,6 +166,7 @@ void Shop::gotoShop() {
                 std::getline(std::cin, userInput);
                 if (!userInput.empty()) {
                     bool cont = true;
+
                     for (int i = 0; i < userInput.size(); i++) {
                         if (!std::isdigit(userInput[i])) {
                             cont = false;
@@ -177,8 +184,12 @@ void Shop::gotoShop() {
             int choice = -1;
             while (true) {
                 std::cout << sell_options() << std::endl;
+                std::cout << "r) exit\n";
                 std::getline(std::cin, userInput);
                 if (!userInput.empty()) {
+                    if (userInput == "r") {
+                        break;
+                    }
                     if (const int temp = std::stoi(userInput);
                         temp >= 1 && temp < inventory_ptr->how_many_types_of_things()) {
                         choice = temp - 1;

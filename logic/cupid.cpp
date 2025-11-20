@@ -253,6 +253,7 @@ void cupid::runGame() {
         } else if (player_input == "t") {
             water();
         } else if (player_input == "m") {
+            ansi_clear();
             shop.gotoShop();
         }
     }
