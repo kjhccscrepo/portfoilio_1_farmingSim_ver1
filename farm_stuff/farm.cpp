@@ -2,6 +2,7 @@
 #include "farm.hpp"
 #include "../plots/soil.hpp"
 #include "../plots/weeds/weed_classic.hpp"
+#include <random>
 
 Farm::Farm(const int ini_rows, const int ini_columns) {
     myPlayer = nullptr;
@@ -56,7 +57,7 @@ int Farm::getDays() const {
     return dayCounter;
 }
 
-void Farm::plant(int row, int column, Plot *new_plot) {
+void Farm::plant(const int row, const int column, Plot *new_plot) {
     const Plot *current_plot = plots.at(row).at(column);
     plots.at(row).at(column) = new_plot;
     delete current_plot;
@@ -77,26 +78,34 @@ void Farm::end_day() {
             }
         }
     }
-    if (xBuffer.size() == yBuffer.size() && xBuffer.size() > 0 && yBuffer.size() > 0) {
+    if (xBuffer.size() == yBuffer.size() && !xBuffer.empty() && !yBuffer.empty()) {
         const int xMax = row_capacity();
         const int yMax = column_capacity();
 
         for (int i = 0; i < xBuffer.size(); i++) {
             if (xBuffer[i] > 0) {
-                const auto weed = new weed_classic();
-                plant(xBuffer[i] - 1, yBuffer[i], weed);
+                if (const int r = (rand() % 9); r > 4) {
+                    const auto weed = new weed_classic();
+                    plant(xBuffer[i] - 1, yBuffer[i], weed);
+                }
             }
             if (yBuffer[i] > 0) {
-                const auto weed = new weed_classic();
-                plant(xBuffer[i], yBuffer[i] - 1, weed);
+                if (const int r = (rand() % 9); r > 4) {
+                    const auto weed = new weed_classic();
+                    plant(xBuffer[i], yBuffer[i] - 1, weed);
+                }
             }
             if (xBuffer[i] < xMax - 1) {
-                const auto weed = new weed_classic();
-                plant(xBuffer[i] + 1, yBuffer[i], weed);
+                if (const int r = (rand() % 9); r > 4) {
+                    const auto weed = new weed_classic();
+                    plant(xBuffer[i] + 1, yBuffer[i], weed);
+                }
             }
             if (yBuffer[i] < yMax - 1) {
-                const auto weed = new weed_classic();
-                plots[xBuffer[i]][yBuffer[i] + 1] = weed;
+                if (const int r = (rand() % 9); r > 4) {
+                    const auto weed = new weed_classic();
+                    plots[xBuffer[i]][yBuffer[i] + 1] = weed;
+                }
             }
         }
     }

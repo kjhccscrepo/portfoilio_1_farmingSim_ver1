@@ -58,6 +58,8 @@ void GamePrinter::generate_info() {
     info_print << "i:\tview inventory\n";
     info_print << "o:\tchange selected seed\n";
     info_print << "p:\tplant selected seed\n";
+    info_print << "q:\twater the selected plot\n";
+    info_print << "m:\tgo to the shop\n";
     info_print << "q:\tquit the game\n";
     info = info_print.str();
 }

@@ -124,10 +124,10 @@ void plant::setCost(const int &myCost) {
 }
 
 plant::plant(const plant *plant_ptr) {
-    this->setName(plant_ptr->name);
-    this->setAge(plant_ptr->age);
-    this->setMatureTime(plant_ptr->mature_time);
-    this->setStates(plant_ptr->myStates);
+    this->name = (plant_ptr->name);
+    this->age = plant_ptr->age;
+    this->mature_time = (plant_ptr->mature_time);
+    this->myStates = (plant_ptr->myStates);
     this->drop_amount_seed = (plant_ptr->drop_amount_seed);
     this->weighted_odds_seeds = (plant_ptr->weighted_odds_seeds);
     this->drop_amount_produce = (plant_ptr->drop_amount_produce);
